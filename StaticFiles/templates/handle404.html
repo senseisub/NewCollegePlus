@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <title>CollegePlus</title>
+        <style>
+            .homebutton{
+                margin-top: 50px;
+                border-radius: 25px;
+                background-color: #0099cc;
+                color: white;
+                padding: 18px;
+                padding-left: 55px;
+                padding-right: 55px;
+                font-size: 16px;
+                cursor: pointer;
+                opacity: 1;
+                border: none;
+                font-family: 'Poppins', sans-serif;
+            }
+            body h1{
+                -webkit-font-smoothing: antialiased;
+
+            }
+        </style>
+        <script>
+            $( window ).resize(function() {
+                if(($( window ).height()/ $( window ).width()) > 1.5 || isMobile){
+                    $(".message").css({"font-size" : "26pt"});
+                    $(".homebutton").css({"font-size" : "20pt"});
+
+
+                }
+                else{
+                    $(".message").css({"font-size" : "20pt"});
+                    $(".homebutton").css({"font-size" : "12pt"});
+
+
+                }
+            });
+            let bool = false;
+            let boxClick = ()=>{
+            $("#check").click();
+            console.log("clicked2");
+            if(bool){
+                $("#menuToggle span").css("background-color", "#cdcdcd")
+                bool = !bool;
+            }
+            else{
+                $("#menuToggle span").css("background-color", "#232323")
+                bool = !bool;
+            }
+            };
+
+            let logoClick = () => {
+                document.location.href= "/home";
+            };
+
+$( document ).ready(function() {
+    let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if(isMobile){
+        $(".message").css({"font-size" : "26pt"});
+        $(".homebutton").css({"font-size" : "20pt"});
+
+    }
+});
+        </script>
+    </head>
+    <body style = "background-color: #232323;">
+        <section style = "text-align: center;">
+            <h1 style = "font-family: 'Montserrat', sans-serif; text-align: center; color: #efefef; font-size: 28pt; -webkit-font-smoothing: antialiased;">College<m style = "color: red">Plus</m></h1>
+        </section>
+        <section style = "text-align: center; padding-top: 20vh;">
+            <h1 class = 'message' style = "font-family: 'Montserrat', sans-serif; color : #efefef; font-size: 20pt; text-align: center;-webkit-font-smoothing: antialiased;">
+                Oops we couldn't find that page 😪
+            </h1>
+        </section>
+
+        <section style = "text-align: center; align-items: center;">
+            <button class = 'homebutton' onclick="logoClick()">Go Home</button>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+
+footer {
+  background-color: #232323;
+  margin-bottom: -20px;
+  text-align: center;
+  padding-bottom: 20px;
+  margin-top: 30%;
+}
+
+
+#plus{
+  color:tomato;
+  font-size: 85px;
+}
+#college{
+  color:lightgrey;
+  font-size: 85px;
+  border-color: 2px solid black;
+  margin: -5px;
+  font-family: "Segoe UI",Arial,sans-serif; 
+  font-weight: 400;
+
+}
+
+
+#errorthrower{
+  text-align: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+
+#id{
+  background-color: #ff0000;
+}
+/* *, */
+/* *::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-size: 62,5%;
+} */
+
+
+button{
+  cursor: pointer;
+}
+

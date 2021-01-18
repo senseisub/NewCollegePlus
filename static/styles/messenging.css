@@ -1,0 +1,171 @@
+
+        .form__label {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            margin-left: 2rem;
+            margin-top: 0.7rem;
+            display: block;
+            transition: all 0.3s;
+            transform: translateY(0rem);
+          }
+    
+          .form__input {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            font-size: 1.2rem;
+            margin: 0 auto;
+            margin-top: 5%;
+            padding: 1.5rem 2rem;
+            border-radius: 0.8rem;
+            background-color: #EFEFEF;
+            border: none;
+            width: 50%;
+            display: block;
+            border-bottom: 0.3rem solid transparent;
+            transition: all 0.3s;
+          }
+    
+          .form__input:placeholder-shown + .form__label {
+            opacity: 0;
+            visibility: hidden;
+            -webkit-transform: translateY(-4rem);
+            transform: translateY(-4rem);
+          }
+          #myUL {
+            /* Remove default list styling */
+            list-style-type: none;
+            padding: 0;
+            margin: 0 auto;
+            width: 54%;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+          }
+    
+          #myUL li a {
+            border: 1px solid #ddd; /* Add a border to all links */
+            margin-top: -1px; /* Prevent double borders */
+            background-color: #EFEFEF; /* Grey background color */
+            padding: 12px; /* Add some padding */
+            text-decoration: none; /* Remove default text underline */
+            font-size: 18px; /* Increase the font-size */
+            color: black; /* Add a black text color */
+            display: block; /* Make it into a block element to fill the whole list */
+          }
+    
+          #myUL li a:hover:not(.header) {
+            background-color: #eee; /* Add a hover effect to all links, except for headers */
+          }
+    
+          li{
+              cursor:pointer;
+            }
+    
+          .contact{
+            width : 30vw;
+            border-right: 2px #0099cc solid;
+            height: 100vh;
+          }
+          .messageView{
+            width : 70vw;
+            height: 100vh;
+            background-color: #121212;
+            border-top-right-radius: 25px;
+            border-bottom-right-radius: 25px;
+
+          }
+          #table{
+            min-height : 100vh;
+            border : 2px #0099cc solid;
+            display: inline-flex;
+            flex-direction: row;
+            max-width: 97vw;
+            border-radius: 25px;
+          }
+    
+          .messageTabs{
+            border-bottom: 1px #0099cc solid;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            cursor: pointer;
+            
+          }
+          
+    
+          .messageTabs h4{
+            text-align: center;
+            font-family : 'Poppins', sans-serif;
+            font-weight: 300;
+          }
+    
+          .textingArea{
+            display: inline-flex;
+            flex-direction: row;
+            height: 10vh;
+            width : 100%;
+            justify-content: center;
+          }
+          .textingArea .left{
+            width: 15%;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 55%;
+
+          }
+          .textingArea .middle{
+            width: 70%;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            height: 55%;
+          }
+          .textingArea .right{
+            width: 15%;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 55%;
+          }
+    
+          .middle textarea{
+              width: 100%;
+              border-radius: 50px;
+              font-size: 14pt;
+              font-family: 'Poppins', sans-serif;
+              font-weight: 300;
+              resize: none;
+          }
+    
+          .messageViewPort{
+            height: 90vh;
+            display: inline-flex;
+            flex-direction: column-reverse;
+            width: 100%;
+            padding-bottom: 3vh;
+          }
+    
+          .singleMessage{
+            width : 100%;
+            display: inline-flex;
+            flex-direction: column;
+            margin-bottom: 1vh;
+          }
+    
+          .innerMessage{
+            width: fit-content; 
+            background-color: tomato; 
+            border-radius: 15px; 
+            margin-right: 1vw;
+            margin-left: 1vw;
+            max-width: 40%;
+            cursor: pointer;
+          }
+
+          .innerMessage h4 {
+              color : black;
+          }

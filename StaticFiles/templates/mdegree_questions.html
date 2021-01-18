@@ -1,0 +1,404 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="q" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="address bar icon" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/styles/mdegree_questions.css'%}">
+    <link rel="stylesheet" href="{% static '/styles/mdegree_questions.css'%}">
+    <script src="{% static '/scripts/degree.js'%}"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
+      </script>
+      <title>DegreePicker</title>
+      <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-2209994521755973",
+              enable_page_level_ads: true
+        });
+    </script>
+  </head>
+  <body>
+    <div class="animation-area">
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          </ul>
+      </div>
+    <nav role="navigation">
+      <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="menu">
+          <a href="/mobile/home"><li>Home</li></a><br>
+          <a href="/mobile/knowcollege"><li>CollegePicker</li></a><br>
+          <a href="/mobile/knowdegree"><li>DegreePicker</li></a><br>
+          <a href="/mobile/knowdevice"><li>Device Picker</li></a><br>
+          <a href="/mobile/resources"><li> Resources</li></a><br>
+          <a href="/mobile/gpaCalculator"><li> GPACalculator</li></a><br>
+          <a href="/mobile/about"><li>About CollegePlus™</li></a><br>
+          <a href="/mobile/logout"><li>Log out</li></a><br>
+        </ul>
+      </div>
+      <div id="logo" style="text-align: center; justify-content: center;">
+        <h1 style="width:45%; margin: auto; cursor: pointer; height: 100%; padding-top: 2%; margin-top: .8vh;" id="college">College<m id="plus"> + </m></h1>
+      </div>
+      <div id="poop">
+        <form action="/mobile/login_page" method="get">
+          <p style="margin-top: -10px; font-size: 3vw; height: 100%;"><button type="submit" name="button" style="vertical-align: middle; height: 60px; color: {{iconcolor}}; max-width: 70px;"><i style="font-size: 40pt;" class="material-icons">account_circle</i></button></p>
+        </form>
+      </div> 
+    </nav>
+      <div id="questionsform" style="padding-bottom: 10%; margin-bottom: 10%;">
+        <div id="firstq">
+          <h1 style="font-weight: 500; font-size: 30pt; margin-bottom: 10%;">Your Answers Will Help Us Recommend You A Degree<h1>
+          <h3 class="cfq"> Select the statement that you identify the most with </h3>
+          <div>
+            <select class="drop" name="ques1" id="ques1" style="width: 50%;">
+              <option value="Ethnic and Gender Studies" style="width: 30%;">
+                <!-- //program.bachelors.ethnic_cultural_gender -->
+                I find studying individuals backgrounds and gender roles interesting
+              </option>
+              <option value="Communication">
+                I enjoy studying the way individuals communicate their ideas with others
+              </option>
+              <option value="Computer Science">
+                I could spend hours behind a computer exploring how tech works
+              </option>
+              <option value="Education">
+                I enjoy teaching others things I have learned
+              </option>
+              <option value="Political Science">
+                I enjoy reading about public policy.
+              </option>
+              <option value="Economics">
+                I enjoy learning about the economy and how it works
+              </option>
+              <option value="History">
+                I am really interested in any type of history.
+              </option>
+              <optgroup label=""></optgroup>
+            </select>
+          </div>
+        </div>
+        <div>
+          <h3 class="cfq"> Select the statement that you identify the most with  </h3>
+          <div>
+            <select class="drop" name="ques2" id="ques2" style="width: 50%;">
+              <option value="Engineering">
+                I enjoy using math and science to build things
+              </option>
+              <option value="Legal Studies">
+                I value using evidence and logic to support an argument
+              </option>
+              <option value="English">
+                I appreciate literature and read and analyze text for fun
+              </option>
+              <option value="Biological Sciences">
+                I am interested in studying living organisms and how they work
+              </option>
+              <option value="Business">
+                I like finding different ways to make money.
+              </option>
+              <option value="Nursing">
+                I take pride in the fact that I like taking care of people
+              </option>
+              <optgroup label=""></optgroup>
+            </select>
+          </div>
+        </div>
+        <div>
+          <h3 class="cfq"> I feel like I am ... </h3>
+          <div>
+            <select class="drop" name="ques3" id="ques3" style="width: 50%;">
+              <option value="Ethnic and Gender Studies">
+                An independent, open-minded, and critical thinker.
+              </option>
+              <option value="Communication">
+                Fascinated by all forms of mass media, from the Internet to TV to magazines.<br>
+              </option>
+              <option value="Computer Science">
+                Curious about human behavior, organized, good with numbers, and a good communicator.
+              </option>
+              <option value="Education">
+                Patient, well organized, and flexible. I am fascinated by the learning process.
+              </option>
+              <option value="Political Science">
+                A good leader and I would be a really good president.
+              </option>
+              <option value="Economics">
+                Pretty good at understanding how money works and how it travels.
+              </option>
+              <option value="History">
+                Really good at piecing together historical events.
+              </option>
+              <optgroup label=""></optgroup>
+            </select>
+          </div>
+        </div>
+        <div>
+          <h3 class="cfq"> I feel like I am ... </h3>
+          <div>
+            <select class="drop" name="ques4" id="ques4" style="width: 50%;">
+              <option value="Engineering">
+                Good at math and science and interested in working with people.<br> 
+              </option>
+              <option value="Legal Studies">
+                Fascinated by the relationship between law and society. 
+              </option>
+              <option value="English">
+                A person who loves to read different types of texts and who enjoys analyzing literary pieces.<br> 
+              </option>
+              <option value="Biological Sciences">
+                A nature lover. I love animals and plants and enjoy learning why life exists<br> and behaves the way it does.
+              </option>
+              <option value="Business">
+                Good at selling things and have a knack for getting money.
+              </option>
+              <option value="Nursing">
+                Good at knowing how to take care of injuries or sicknesses
+              </option>
+              <optgroup label=""></optgroup>
+            </select>
+          </div>
+        </div>
+        <div>
+          <h3 class="cfq"> Select a course that interests you </h3>
+          <div>
+            <select class="drop" name="ques5" id="ques5" style="width: 50%;">
+              <option value="Ethnic and Gender Studies">
+                <!-- //program.bachelors.ethnic_cultural_gender -->
+                Anthropology
+              </option>
+              <option value="Communication">
+                Media Criticism
+              </option>
+              <option value="Computer Science">
+                <!-- //program.bachelors.computer -->
+                An independent project where I create a program
+              </option>
+              <option value="Education">
+                A semester taught teaching kids
+              </option>
+              <option value="Political Science">
+                Shadowing a politician and learning politics.
+              </option>
+              <option value="Economics">
+                Economics 101: The Stock Market
+              </option>
+              <option value="History">
+                US History
+              </option>
+              <optgroup label=""></optgroup>
+            </select>
+          </div>
+        </div>
+        <div>
+          <h3 class="cfq"> Select a course that interests you </h3>
+          <div>
+            <select class="drop" name="ques6" id="ques6" style="width: 50%;">
+              <option value="Engineering">
+                Intro to Engineering
+              </option>
+              <option value="Legal Studies">
+                Legal Research and Writing
+              </option>
+              <option value="English">
+                British and American literature
+              </option>
+              <option value="Biological Sciences">
+                Plant Anatomy
+              </option>
+              <option value="Business">
+                Microeconomics
+              </option>
+              <option value="Nursing">
+                Human anatomy
+              </option>
+              <optgroup label=""></optgroup>
+            </select>
+          </div>
+        </div>
+        <div>
+          <h3 class="cfq"> What can you absolutely not stand ?  </h3>
+          <div>
+            <select class="drop" name="ques7" id="ques7" style="width: 50%;">
+              <option value="Ethnic and Gender Studies">
+                When individuals are not interested in others culture
+              </option>
+              <option value="Communication">
+                When people are bad communicators
+              </option>
+              <option value="Computer Science">
+                When I don't understand how a piece of software works
+              </option>
+              <option value="Education">
+                When others are not willing to help others with coursework
+              </option>
+              <option value="Political Science">
+                When people don't vote
+              </option>
+              <option value="Economics">
+                When people don't understand or try to understand how money works
+              </option>
+              <option value="History">
+                When people talk about past events but actually have no idea what happened
+              </option>
+              <optgroup label=""></optgroup>
+            </select>
+          </div>
+        </div>
+        <div>
+          <h3 class="cfq"> What can you absolutely not stand?  </h3>
+          <div>
+            <select class="drop" name="ques8" id="ques8" style="width: 50%;">
+              <option value="Engineering">
+                When people don't put effort into problem-solving
+              </option>
+              <option value="Legal Studies">
+                When somebody cannot support their argument
+              </option>
+              <option value="English">
+                Bad grammar. Enough said.
+              </option>
+              <option value="Biological Sciences">
+                Not being outside enough
+              </option>
+              <option value="Business">
+                When people complain about not having money without thinking of ways to make it.
+              </option>
+              <option value="Nursing">
+                When people don't know how to take care of their health.
+              </option>
+              <optgroup label=""></optgroup>
+            </select>
+          </div>
+        </div>
+        <div>
+          <h3 class="cfq"> Which career sounds the best to you?  </h3>
+          <div>
+            <select class="drop" name="ques9" id="ques9" style="width: 50%;">
+              <option value="Ethnic and Gender Studies">
+                Anthropologist
+              </option>
+              <option value="Communication">
+                Public Relations Manager
+              </option>
+              <option value="Computer Science">
+                Software Engineer
+              </option>
+              <option value="Education">
+                Teacher
+              </option>
+              <option value="Political Science">
+                Mayor of my city
+              </option>
+              <option value="Economics">
+                Stock Broker
+              </option>
+              <option value="History">
+                Historian
+              </option>
+              <optgroup label=""></optgroup>
+            </select>
+          </div>
+        </div>
+        <div>
+          <h3 class="cfq">Which career sounds the best to you?  </h3>
+          <div>
+            <select class="drop" name="ques10" id="ques10" style="width: 50%;">
+              <option value="Engineering">
+                Engineer
+              </option>
+              <option value="Legal Studies">
+                Lawyer
+              </option>
+              <option value="English">
+                English Professor
+              </option>
+              <option value="Biological Sciences">
+                Biologist
+              </option>
+              <option value="Business">
+                COO of a company
+              </option>
+              <option value="Nursing">
+                Nurse
+              </option>
+              <optgroup label=""></optgroup>
+            </select>
+          </div>
+        </div>
+        <div style = "margin-top: 10%;">
+          <button id="submit" style="margin-top: 40px; border-radius: 50px;">Submit Answers</button>
+        </div>
+        <div style="margin-bottom: 10%; margin-top: 1vh;">
+          <form id = "myform" action="/mobile/degree_questions" method="post" style = "width: fit-content; margin-left: auto; margin-right: auto; margin-top: 2vh;">
+            {% csrf_token %}
+            <input name="majors" id="majors" type="text" style="display:none;"></input>
+            <input name="descriptions" id="descriptions" type="text" style="display:none;"></input>
+            <input name="majorLinks" id="majorLinks" type="text" style="display:none;"></input>
+            <input name="togo" id="togo" type="text" style="display:none;"></input>
+            <input name="toge" id="toge" type="text" style="display:none;"></input>
+            <input name="togl" id="togl" type="text" style="display:none;"></input>
+            <input name="firstPickDescription" id="firstPickDescription" type="text" style="display:none;"></input>
+            <input name="secondPickDescription" id="secondPickDescription" type="text" style="display:none;"></input>
+            <input name="thirdPickDescription" id="thirdPickDescription" type="text" style="display:none;"></input>
+            <input name="firstPickURL" id="firstPickURL" type="text" style="display:none;"></input>
+            <input name="secondPickURL" id="secondPickURL" type="text" style="display:none;"></input>
+            <input name="thirdPickURL" id="thirdPickURL" type="text" style="display:none;"></input>
+            <input type="submit" id="recsnext" value = "See Results"></input>
+          </form>
+        </div>
+      </div>
+      
+      <footer >
+        <div>
+          <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-2209994521755973"
+          data-ad-slot="3051770603"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+          <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <div style="display: flex; flex-direction: row; padding-bottom: 3%; padding-top: 3%;">
+          <div style="width: 40%; text-align: right;">
+            <img src= "{% static '/pictures/collegeplus2.png'%}" style="width: 50px; height: 50px; margin-top: 10px; margin-right: 10%;"></img>
+          </div>
+          <div style="width: 60%; text-align: left;">
+            <p style="margin-top: 4.3%;">CollegePlus™ by Slo-Meg Technologies</p>
+          </div>
+        </div>
+        
+  
+        <!-- <p>Contact information: </p>
+        <p>CollegePlus™ Instagram: <a href="https://instagram.com/collegeplusstudents" style="color:#ff6347"> @collegeplusstudents </a></p> 
+         <p> Logan Sage's Instagram:<a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq" style="color:#ff6347"> @logan.sage   </a><p>  </p><a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq"><img src="{% static '/picture/Logan.jpg" style="width: 30px; height:30px;border-radius: 50%;"></img></a></p>
+        <p> Lauren-Megan Botha's Instagram: <a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx" style="color:#ff6347"> @laurenmegan.b   </a><p>  </p><a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx"><img src="{% static '/picture/Lauren.jpg" style="width: 30px; height:30px;border-radius: 50%"></img></a></p>
+        <p> Seun Suberu's Instagram: <a href="https://www.instagram.com/sensei.seun/" style="color:#ff6347"> @sensei.seun   </a><p>  </p><a href="https://www.instagram.com/sensei.seun/"><img src="{% static '/picture/Seun.jpg" style="width: 30px; height:30px;border-radius: 50%; "></img></a></p> -->
+      </footer>
+  </body>
+</html>

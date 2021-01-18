@@ -1,0 +1,290 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="address bar icon" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Outline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static '/pictures/collegeplus2.png'%}">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href = "{% static '/styles/questionForms.css'%}">
+    </link>
+    <link rel="stylesheet" href = "{% static 'styles/headerTemplate.css' %}">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <script src="{% static '/scripts/device.js'%}"></script>
+    <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-2209994521755973",
+              enable_page_level_ads: true
+        });
+    </script>
+    </script>
+    <script src="{% static 'scripts/header.js' %}"></script>        
+    <script src="{% static 'scripts/questionForms.js' %}"></script>        
+
+    <meta charset="utf-8">
+    <title>DevicePicker</title>
+  </head>
+  <body>
+    <nav role="navigation" id = "navbar">
+      <div id="menuToggle" style = "width : 20vw; min-width: 50px;">
+        <div id = 'box' style = "padding-top: 2vw; margin-left: 2vw; padding-right: 10vw;" onclick="boxClick()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <input type="checkbox" id = "check"/>
+        <ul id="menu" style="font-family: 'Montserrat', sans-serif;">
+          <a href="/home"><li class = "menuElements">Home</li></a><br>
+          <a href="/knowcollege"><li class = "menuElements">CollegePicker</li></a><br>
+          <a href="/knowdegree"><li class = "menuElements">DegreePicker</li></a><br>
+          <a href="/knowdevice"><li class = "menuElements">DevicePicker</li></a><br>
+           <a href="/knowSupplies"><li class = "menuElements">SuppliesPicker</li></a><br>
+          <a href="/buyOrSell"><li class = "menuElements">ProductPicker</li></a><br>          <a href="/resources"><li class = "menuElements"> Resources</li></a><br>
+          <a href="/gpaCalculator"><li class = "menuElements"> GPACalculator</li></a><br>
+          <a href="/about"><li class = "menuElements">About CollegePlus™</li></a><br>
+          <a href="/logout"><li class = "menuElements">Log out</li></a><br>
+        </ul>
+
+      </div>
+      <div id="logo" onclick="logoClick('{{city}}')">
+        <h1 class = 'bigTitle'>
+          <m>College</m><m style ="color: tomato">Plus</m>
+        </h1>
+        <!-- <img src="{% static 'pictures/Lyfe_Here_header.png' %}" class="logo-image center d-inline-block align-middle" style = "min-width: 200px;" alt="Lyfe Here Logo" > -->
+      </div>
+      <div style = "width : 20vw;">
+        <div id="poop" style = "text-align: right;">
+          <i class="material-icons" id = "personIcon" onclick="goToSave()">account_circle</i> 
+
+        </div>
+      </div>
+    </nav>
+      <div id="questionsform" style="margin-bottom: 20%;">
+        <div id="firstq">
+          <h2 style = "margin-bottom: 5%;"> These questions will help us recommend you a computer</h2>
+          <h3 class="cfq"> What's your budget ? </h3>
+        </div>
+        <div class = 'questionDiv'>
+          <select class="drop" name="ques1" id="ques1">
+            <option value="0">
+              $2000+
+            </option>
+            <option value="1">
+              $1500-$2000
+            </option>
+            <option value="2">
+              $1000-$1500
+            </option>
+            <option value="3">
+              $500-$1000
+            </option>
+            <option value="4">
+              $250-$500
+            </option>
+            <option value="5">
+              $0-$250
+            </option>
+          </select>
+        </div>
+        <div class = 'questionDiv'>
+          <h3 class="cfq"> What platform do you prefer?  </h3>
+        </div>
+        <div>
+          <select class="drop" name="ques2" id="ques2">
+            <option value="0">
+              Windows
+            </option>
+            <option value="1">
+              Mac OS
+            </option>
+            <option value="2">
+              Chrome OS
+            </option>
+          </select>
+        </div>
+        <div class = 'questionDiv'>
+          <h3 class="cfq"> Do you care about aesthetic?  </h3>
+        </div>
+        <div>
+          <select class="drop" name="ques3" id="ques3">
+            <option value="0">
+              Yes, it needs to look pretty
+            </option>
+            <option value="1">
+              No, it doesn't matter
+            </option>
+          </select>
+        </div>
+        <div class = 'questionDiv'>
+          <h3 class="cfq"> Do you want a nice keyboard?  </h3>
+        </div>
+        <div>
+          <select class="drop" name="ques4" id="ques4">
+            <option value="0">
+              Yes, I love a good keyboard
+            </option>
+            <option value="1">
+              No, it doesn't matter
+            </option>
+          </select>
+        </div>
+        <div class = 'questionDiv'>
+          <h3 class="cfq"> Does the screen have to be top notch? </h3>
+        </div>
+        <div>
+          <select class="drop" name="ques5" id="ques5">
+            <option value="0">
+              Yes, of course
+            </option>
+            <option value="1">
+              No, it doesn't matter
+            </option>
+          </select>
+        </div>
+        <div class = 'questionDiv'>
+          <h3 class="cfq"> Which of these describe the workload you will exhibit during its use? </h3>
+        </div>
+        <div>
+          <select class="drop" name="ques6" id="ques6">
+            <option value="0">
+              Just browsing the web
+            </option>
+            <option value="1">
+              Engineering stuff
+            </option>
+            <option value="2">
+              Typing papers
+            </option>
+            <option value="3">
+              Computer Science stuff
+            </option>
+            <option value="4">
+              Datasets like Google Sheets and Excel
+            </option>
+            <option value="5">
+              Heavy video editing
+            </option><option value="6">
+              Just media Consumption
+            </option>
+          </select>
+        </div>
+        <div class = 'questionDiv'>
+          <h3 class="cfq"> Do you want a convertible laptop? </h3>
+        </div>
+        <div>
+          <select class="drop" name="ques7" id="ques7">
+            <option value="0">
+              Yes
+            </option>
+            <option value="1">
+              No
+            </option>
+          </select>
+        </div>
+        <div class = 'questionDiv'>
+          <h3 class="cfq"> How powerful do you want your laptop? </h3>
+        </div>
+        <div>
+          <select class="drop" name="ques8" id="ques8">
+            <option value="0">
+              Super powerful
+            </option>
+            <option value="1">
+              Decently powerful
+            </option>
+            <option value="2">
+              Doesn't really matter
+            </option>
+          </select>
+        </div>
+        <div class = 'questionDiv'>
+          <h3 class="cfq"> Do you use HDMI cables, ethernet cables, SD cards, or flash drives often.   </h3>
+        </div>
+          <select class="drop" name="ques9" id="ques9" style="height: 6%;">
+            <option value="0">
+              Yes of course!
+            </option>
+            <option value="1">
+              No not really
+            </option>
+          </select>
+        <div class = 'questionDiv'>
+          <h3 class="cfq"> Do you work offline a lot? </h3>
+        </div>
+        <div>
+          <select class="drop" name="ques10" id="ques10">
+            <option value="0">
+              Yes I do
+            </option>
+            <option value="1">
+              No I don't
+            </option>
+          </select>
+        </div>
+        <div style = "margin-top: 10vh;">
+          <button id="submit" style="margin-top: 40px; border-radius: 25px;font-family: 'Poppins', sans-serif;">Submit Answers</button>
+        </div>
+        <div style = "margin-top: 15vh;">
+          <form id = "myform" action="/devicepicker" method="post" style = "width: fit-content; margin-left: auto; margin-right: auto;">
+            {% csrf_token %}
+            <input name="devices" id="devices" type="text" style="display:none;"></input>
+            <input name="urls" id="urls" type="text" style="display:none;"></input>
+            <input name="images" id="images" type="text" style="display:none;"></input>
+            <input name="answers" id="answers" type="text" style="display:none;"></input>
+
+          <input type="submit" id="recsnext" style="margin-top: 5%; border-radius: 5px; " value = "See Results"></input>
+        </form>
+        </div>
+      </div>
+
+      <footer >
+        <div>
+          <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-2209994521755973"
+          data-ad-slot="3051770603"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+          <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <div style="display: flex; flex-direction: row; padding-bottom: 0%; padding-top: 3%;">
+          <div style="width: 40%; text-align: right;">
+            <img src= "{% static '/pictures/collegeplus2.png'%}" style="width: 50px; height: 50px; margin-top: 10px; margin-right: 10%;"></img>
+          </div>
+          <div style="width: 60%; text-align: left;">
+            <p style="margin-top: 3.2%;">CollegePlus™ by Slo-Meg Technologies</p>
+          </div>
+        </div>
+  
+        
+  
+        <!-- <p>Contact information: </p>
+        <p>CollegePlus™ Instagram: <a href="https://instagram.com/collegeplusstudents" style="color:#ff6347"> @collegeplusstudents </a></p> 
+         <p> Logan Sage's Instagram:<a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq" style="color:#ff6347"> @logan.sage   </a><p>  </p><a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq"><img src="{% static '/picture/Logan.jpg" style="width: 30px; height:30px;border-radius: 50%;"></img></a></p>
+        <p> Lauren-Megan Botha's Instagram: <a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx" style="color:#ff6347"> @laurenmegan.b   </a><p>  </p><a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx"><img src="{% static '/picture/Lauren.jpg" style="width: 30px; height:30px;border-radius: 50%"></img></a></p>
+        <p> Seun Suberu's Instagram: <a href="https://www.instagram.com/sensei.seun/" style="color:#ff6347"> @sensei.seun   </a><p>  </p><a href="https://www.instagram.com/sensei.seun/"><img src="{% static '/picture/Seun.jpg" style="width: 30px; height:30px;border-radius: 50%; "></img></a></p> -->
+      </footer>
+  </body>
+</html>

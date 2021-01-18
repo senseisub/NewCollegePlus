@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="address bar icon" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Outline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static '/pictures/collegeplus2.png'%}">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href = "{% static '/styles/mdevice_rec.css'%}">
+    </link>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <script src="{% static '/scripts/scripts2.js'%}">
+    </script>
+    <meta charset="utf-8">
+    <title>Device Recommendations</title>
+    <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-2209994521755973",
+              enable_page_level_ads: true
+        });
+    </script>
+    <script>
+      function stripExtras(str){
+        if(str.length == 0){
+          return [];
+        }
+        let tempString = str.split(",");
+
+        // for(let i = 0 ; i < tempString.length; i++){
+        //   tempString[i] = tempString[i].substring(1, tempString[i].length-1);
+        // }
+        return tempString;
+      }
+      function onLoad(){
+        let devices = stripExtras($("#devices").text());
+        let urls = stripExtras($("#urls").text());
+        let images = stripExtras($("#images").text());
+
+          for(var i = 0; i < devices.length; i++){
+
+              $("#deviceshoweerdiv").append(renderHTML(devices[i], urls[i], images[i], (i+1)));
+          }
+          $("#logout").click(function(){
+            document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.location.href = "/logout";
+          });
+          $("#logout").hover(function(){
+            $("#logout").css("cursor", "pointer");
+          });
+          $("#logo").click(function(){
+            document.location.href = "/mobile/home";
+          });
+      }
+
+      function renderHTML(device, url, image, num){
+        let tempstring = "<div class='innerdiv'>" +
+          "<img src=" + image +" style='width: 200px; height: 200px'>"+
+          "</img>"+
+          "<p style= 'font-size: 18pt; font-weight: 700;''>"+
+              device + "<br></p>"+
+          "<form action=" + url +">"+
+            "<input class='bttn' type='submit' value='Look at this laptop'>"+
+            "</input>"+
+          "</form>"+
+        "</div>";
+        return tempstring;
+      }
+      window.onload = onLoad;
+    </script>
+  </head>
+  <body>
+    <nav role="navigation">
+      <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="menu">
+          <a href="/mobile/home"><li>Home</li></a><br>
+          <a href="/mobile/knowcollege"><li>CollegePicker</li></a><br>
+          <a href="/mobile/knowdegree"><li>DegreePicker</li></a><br>
+          <a href="/mobile/knowdevice"><li>Device Picker</li></a><br>
+          <a href="/mobile/resources"><li> Resources</li></a><br>
+          <a href="/mobile/gpaCalculator"><li> GPACalculator</li></a><br>
+          <a href="/mobile/about"><li>About CollegePlus™</li></a><br>
+          <a href="/mobile/logout"><li>Log out</li></a><br>
+        </ul>
+      </div>
+      <div id="logo" style="text-align: center; justify-content: center;">
+        <h1 style="width:45%; margin: auto; cursor: pointer; height: 100%; padding-top: 2%; margin-top: .8vh;" id="college">College<m id="plus"> + </m></h1>
+        </div>
+        <div id="poop">
+          <form action="/mobile/login_page" method="get">
+            <p style="margin-top: -10px; font-size: 3vw; height: 100%;"><button type="submit" name="button" style="vertical-align: middle; height: 60px; color: {{iconcolor}}; max-width: 70px;"><i style="font-size: 40pt;" class="material-icons">account_circle</i></button></p>
+          </form>
+        </div>
+      </div> 
+    </nav>
+    <div style = "display: none;">
+      <p id = "devices">{{devices}}</p>
+      <p id = "urls">{{urls}}</p>
+      <p id = "images">{{images}}</p>
+    </div>
+    <!-- </nav> -->
+    <h1 id= "statement" style = "font-size: 30pt;font-family: Poppins, sans-serif; font-weight: 500;"> These Are The Devices We Recommend</h1>
+    <div id ="deviceshoweerdiv" style="width:100%; margin-top: 2%;">
+      
+    </div>
+    <div id="bttmbtns" style="margin-bottom: 20%; display: flex; flex-direction: row; margin-top: 10%;">
+      <div style = "width: 10%">
+
+      </div>
+      <div style = "width: 40%">
+        <form action="/mobile/login_page" method="get">
+          <input type="submit" id="recsnext" value = "See Profile" style = "font-family:  'Quicksand', sans serif;"></input>
+        </form>
+      </div>
+      <div style = "width: 40%">
+        <form action="/mobile/resources" method="get">
+          <input type="submit" id="gotodegrec" value = "More Resources" style = "font-family: 'Quicksand', sans serif;"></input>
+        </form>
+      </div>
+      <div style = "width: 10%">
+
+      </div>
+    </div>
+    <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Display Ads -->
+
+    <footer >
+      <div>
+        <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-2209994521755973"
+        data-ad-slot="3051770603"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <div style="display: flex; flex-direction: row; padding-bottom: 3%; padding-top: 3%;">
+        <div style="width: 40%; text-align: right;">
+          <img src= "{% static '/pictures/collegeplus2.png'%}" style="width: 50px; height: 50px; margin-top: 10px; margin-right: 10%;"></img>
+        </div>
+        <div style="width: 60%; text-align: left;">
+          <p style="margin-top: 4.3%;">CollegePlus™ by Slo-Meg Technologies</p>
+        </div>
+      </div>
+      
+
+      <!-- <p>Contact information: </p>
+      <p>CollegePlus™ Instagram: <a href="https://instagram.com/collegeplusstudents" style="color:#ff6347"> @collegeplusstudents </a></p> 
+       <p> Logan Sage's Instagram:<a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq" style="color:#ff6347"> @logan.sage   </a><p>  </p><a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq"><img src="{% static '/picture/Logan.jpg" style="width: 30px; height:30px;border-radius: 50%;"></img></a></p>
+      <p> Lauren-Megan Botha's Instagram: <a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx" style="color:#ff6347"> @laurenmegan.b   </a><p>  </p><a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx"><img src="{% static '/picture/Lauren.jpg" style="width: 30px; height:30px;border-radius: 50%"></img></a></p>
+      <p> Seun Suberu's Instagram: <a href="https://www.instagram.com/sensei.seun/" style="color:#ff6347"> @sensei.seun   </a><p>  </p><a href="https://www.instagram.com/sensei.seun/"><img src="{% static '/picture/Seun.jpg" style="width: 30px; height:30px;border-radius: 50%; "></img></a></p> -->
+    </footer>
+      
+  </body>
+</html>

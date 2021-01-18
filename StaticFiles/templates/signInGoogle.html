@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href=" {% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" href=" {% static '/pictures/collegeplus2.png'%}" />
+    <link rel="address bar icon" href=" {% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" type="image/x-icon" href=" {% static '/pictures/collegeplus2.png'%}" />
+    <link rel="icon" type="image/png" sizes="32x32" href=" {% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="icon" type="image/png" sizes="16x16" href=" {% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <link rel="stylesheet" href = "{% static '/styles/knowdegree.css'%}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Outline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"> </script>
+    <meta name="google-signin-scope" content="profile email">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="319129394434-rdvlugdj0tua8k6lr69eu6a9e63l8059.apps.googleusercontent.com">
+    <link rel="stylesheet" href = "{% static 'styles/headerTemplate.css' %}">
+    <link rel="stylesheet" href = "{% static 'styles/loginPages.css' %}">
+
+    <title>Sign Up</title>
+    <style>
+        
+        
+        @import url(https://fonts.googleapis.com/css?family=Roboto:500);
+    </style>
+
+    <script src="{% static 'scripts/header.js' %}"></script>
+    <script src="{% static 'scripts/loginPages.js' %}"></script>
+
+  </head>
+  <body>
+    <nav role="navigation" id = "navbar">
+        <div id="menuToggle" style = "width : 20vw; min-width: 50px;">
+          <div id = 'box' style = "padding-top: 2vw; margin-left: 2vw; padding-right: 10vw;" onclick="boxClick()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <input type="checkbox" id = "check"/>
+          <ul id="menu" style="font-family: 'Montserrat', sans-serif;">
+            <a href="/home"><li class = "menuElements">Home</li></a><br>
+            <a href="/knowcollege"><li class = "menuElements">CollegePicker</li></a><br>
+            <a href="/knowdegree"><li class = "menuElements">DegreePicker</li></a><br>
+            <a href="/knowdevice"><li class = "menuElements">DevicePicker</li></a><br>
+             <a href="/knowSupplies"><li class = "menuElements">SuppliesPicker</li></a><br>
+          <a href="/buyOrSell"><li class = "menuElements">ProductPicker</li></a><br>            <a href="/resources"><li class = "menuElements"> Resources</li></a><br>
+            <a href="/gpaCalculator"><li class = "menuElements"> GPACalculator</li></a><br>
+            <a href="/about"><li class = "menuElements">About CollegePlus™</li></a><br>
+            <a href="/logout"><li class = "menuElements">Log out</li></a><br>
+          </ul>
+  
+        </div>
+        <div id="logo" onclick="logoClick('{{city}}')">
+          <h1 class = 'bigTitle'>
+            <m>College</m><m style ="color: tomato">Plus</m>
+          </h1>
+          <!-- <img src="{% static 'pictures/Lyfe_Here_header.png' %}" class="logo-image center d-inline-block align-middle" style = "min-width: 200px;" alt="Lyfe Here Logo" > -->
+        </div>
+        <div style = "width : 20vw;">
+          <div id="poop" style = "text-align: right;">
+            <i class="material-icons" id = "personIcon" onclick="goToSave()">account_circle</i> 
+  
+          </div>
+        </div>
+      </nav>
+      <div style="margin-top: 12%; text-align: center;">
+        <h3 class = 'banner'>
+            Sign Up for CollegePlus!
+        </h3>
+          
+      </div>
+      <div class = 'superForm'>
+        <div class = 'subFormDiv'>
+            <form id = "form" method = "post" action  = "/withGoogle" >
+                {% csrf_token %}
+                <label for="username"  style="font-family: Poppins, sans-serif; color: black;"> Email </label>
+                <h3 id ="emailchecker" style="display:none; color: red">
+                    
+                </h3>
+                <input type="text" id = "username" name="username" style="width: 100%; /* Full width */
+                padding: 12px; /* Some padding */
+                border: 1px solid #ccc; /* Gray border */
+                border-radius: 4px; /* Rounded borders */
+                box-sizing: border-box; /* Make sure that padding and width stays in place */
+                margin-top: 6px; /* Add a top margin */
+                margin-bottom: 16px; /* Bottom margin */
+                resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */"/><br>
+                <label for="password" style="font-family: Poppins, sans-serif; color: black;" > Password (At least 8 characters long with Special Character, Number and Letter)</label>
+                <input type="password" id = "password" name="password" style="width: 100%; /* Full width */
+                padding: 12px; /* Some padding */
+                border: 1px solid #ccc; /* Gray border */
+                border-radius: 4px; /* Rounded borders */
+                box-sizing: border-box; /* Make sure that padding and width stays in place */
+                margin-top: 6px; /* Add a top margin */
+                margin-bottom: 16px; /* Bottom margin */
+                resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */"/><br>
+                <input type="checkbox" id="TextOn" style="margin-bottom: 5%;"/> <m style = "color:black;">Show Password </m><br><br>
+                <input type="checkbox" id = "Privacy" style="margin-bottom: 5%;"/> <m style = "color:black;">By Checking this box you agree to our <a href = "/TermsOfService" style="text-decoration: underline;">Terms Of Service</a> and <a href = "/PrivacyPolicy" style="text-decoration: underline;">Privacy Policies</a></m><br><br>
+                <input id="subButt" type="button" style="background-color: tomato;
+                color: white;
+                padding: 12px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer; ;" value="Sign Up"/>
+            </form>
+            <h3 id = "error" style="color: red;">
+                {{name}} 
+            </h3>
+        </div>
+        <div style="width: 20%;">
+          <div style="border-radius: 50%; background-color: #232323; height: 100px; width: 100px; margin: 0 auto; margin-top: 5vh;">
+            <h1 style="color: white; padding-top: 30%; font-family : Quicksand, san serif">
+                O<m style="color: tomato;">R</m>
+            </h1>
+          </div>
+        </div>
+        <div style="width: 40%;">
+               
+            <form method="POST" action="/mobile/withGoogle" style="margin-bottom: 10%; justify-content: center;" id = "google"> 
+             {% csrf_token %}
+                 <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" data-width="200" data-height="50" style = "max-width: 240px; margin-left : auto; margin-right : auto; margin-top: 35%;"></div>
+                 <input type="text" id = "googleUsername" name = "googleUsername" style = "display: none;"/>
+                 <input type="text" id = "googleImage" name = "googleImage" style = "display: none;"/>
+                <!-- <div class="google-icon-wrapper">
+                    <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" style="margin-left: -9px;"/>
+                </div> -->
+            <!-- <input id = "googleSubmitter" class = "google-btn" type="submit" value ="Sign in with google" style="text-align: right; color: white; font-weight: 300"></input> -->
+             <h3 id = "error2" style="color: red; display: none;">
+                 {{name2}}
+             </h3>
+            </form>
+            <!-- <input type="checkbox" id = "Privacy2" style="margin-bottom: 5%;"/> <m style = "color:black;">By Checking this box you agree to our <a href = "/TermsOfService" style="text-decoration: underline;">Terms Of Service</a> and <a href = "/PrivacyPolicy" style="text-decoration: underline;">Privacy Policies</a></m><br><br> -->
+
+    </div>
+        
+      </div> 
+      <div style="text-align: center; margin-top: 5%; margin-bottom: 10%; padding-bottom: 5vh;">
+          <h2 class = 'alternative'>
+              Already have an account?
+          </h2>
+          <button id="login">
+                        Log In!
+            </button>
+      </div>
+    
+
+  </body>
+</html>

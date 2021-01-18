@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="address bar icon" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/styles/questionForms.css'%}">
+    <link rel="stylesheet" href = "{% static 'styles/headerTemplate.css' %}">
+    </link>
+    <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'semantic/dist/semantic.min.css'%}"> -->
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<!-- <script src="{% static 'semantic/dist/semantic.min.js' %}"></script> -->
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-2209994521755973",
+              enable_page_level_ads: true
+        });
+    </script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="{% static '/scripts/script.js'%}">
+    </script>
+    <script src="{% static 'scripts/header.js' %}"></script>   
+    <script>
+      $( window ).resize(function() {
+        if(($( window ).height()/ $( window ).width()) > 1.5 || isMobile){
+
+          $("#actHeader").css({"font-size" : "2.2vh"});
+          $("#satHeader").css({"font-size" : "2.2vh"});
+
+        }
+        else{
+
+            $("#actHeader").css({"font-size" : "3vw"});
+            $("#satHeader").css({"font-size" : "3vw"});
+        }
+      });
+    </script>
+    <style>
+        #myform label{
+            font-weight: 500;
+            font-size: 16pt;
+            font-family: 'Poppins', sans-serif;
+        }
+        #myform input{
+            margin-bottom: 5vh;
+        }
+        #myform textarea{
+            margin-bottom: 5vh;
+        }
+    </style>
+    <meta charset="utf-8">
+    <title>Selling Page</title>
+  </head>
+  <body>
+    <div>
+      <nav role="navigation" id = "navbar">
+        <div id="menuToggle" style = "width : 20vw; min-width: 50px;">
+          <div id = 'box' style = "padding-top: 2vw; margin-left: 2vw; padding-right: 10vw;" onclick="boxClick()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <input type="checkbox" id = "check"/>
+          <ul id="menu" style="font-family: 'Montserrat', sans-serif;">
+            <a href="/home"><li class = "menuElements">Home</li></a><br>
+            <a href="/knowcollege"><li class = "menuElements">CollegePicker</li></a><br>
+            <a href="/knowdegree"><li class = "menuElements">DegreePicker</li></a><br>
+            <a href="/knowdevice"><li class = "menuElements">DevicePicker</li></a><br>
+             <a href="/knowSupplies"><li class = "menuElements">SuppliesPicker</li></a><br>
+          <a href="/buyOrSell"><li class = "menuElements">ProductPicker</li></a><br>            <a href="/resources"><li class = "menuElements"> Resources</li></a><br>
+            <a href="/gpaCalculator"><li class = "menuElements"> GPACalculator</li></a><br>
+            <a href="/about"><li class = "menuElements">About CollegePlus™</li></a><br>
+            <a href="/logout"><li class = "menuElements">Log out</li></a><br>
+          </ul>
+
+        </div>
+        <div id="logo" onclick="logoClick('{{city}}')">
+          <h1 class = 'bigTitle'>
+            <m>College</m><m style ="color: tomato">Plus</m>
+          </h1>
+          <!-- <img src="{% static 'pictures/Lyfe_Here_header.png' %}" class="logo-image center d-inline-block align-middle" style = "min-width: 200px;" alt="Lyfe Here Logo" > -->
+        </div>
+        <div style = "width : 20vw;">
+          <div id="poop" style = "text-align: right;">
+              <input name = "set1" id= "set1" type="text" style="display: none;"/>
+              <i class="material-icons" id = "personIcon" onclick="goToSave()">account_circle</i> 
+          </div>
+        </div>
+      </nav>
+      <div style="margin-bottom: 20%;">
+        <div id="questionsform" style="padding-bottom: 10%;">
+          <h1 class = 'title' > New Listing for {{formalCollege}} </h1>
+          <h3> You have {{listingAmount}} available new listings </h3>
+          <div id="firstq">
+          <div class="dropdown" style="display: flex; flex-direction: row; width: 70%; margin-left: auto; margin-right: auto;" >
+
+            
+          <div style = "margin-top : 5%">
+            <form id = "myform" action="/sell/{{college}}" method="post"  enctype="multipart/form-data" style = "width: fit-content; margin-left: auto; margin-right: auto;">
+              {% csrf_token %}
+                <label for="person"> Your Name </label>
+                <input class="form__input" style = "width: 75%" type = "text" name = "person" id = "person"  maxlength="25"/>
+                <label for="listing"> Item Name </label>
+                <input class="form__input" style = "width: 75%" type = "text" name = "listing" id = "listing"  maxlength="25"/>
+                <label for="description"> Item Description </label>
+                <textarea class="form__input" style = "width: 75%" type = "text" name = "description" id = "description" maxlength="175"></textarea>
+                <label for="price"> Item Price </label>
+                <input class="form__input" style = "width: 75%" type = "text" name = "price" id = "price"  maxlength="10"/>
+                <label for="listingImages"> Images of the Item (make sure to get different angles) </label>
+                <input class="form__input" style = "width: 75%" type = "file" name = "listingImage1" id = "listingImage1" accept="image/x-png,image/jpeg" />
+                <input class="form__input" style = "width: 75%" type = "file" name = "listingImage2" id = "listingImage2" accept="image/x-png,image/jpeg" />
+                <input class="form__input" style = "width: 75%" type = "file" name = "listingImage3" id = "listingImage3" accept="image/x-png,image/jpeg" />
+                <input class="form__input" style = "width: 75%" type = "file" name = "listingImage4" id = "listingImage4" accept="image/x-png,image/jpeg" />
+              <input type=submit id="dropbtnsub" value = "Create Listing" style="margin-top: 30px;"> </input>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer style="margin-top: 0%;">
+      <div style="display: flex; flex-direction: row; padding-bottom: 0%; padding-top: 3%;">
+        <div style="width: 40%; text-align: right;">
+          <img src= "{% static '/pictures/collegeplus2.png'%}" style="width: 50px; height: 50px; margin-top: 10px; margin-right: 10%;"></img>
+        </div>
+        <div style="width: 60%; text-align: left;">
+          <p style="margin-top: 3.2%;">CollegePlus™ by Slo-Meg Technologies</p>
+        </div>
+      </div>
+
+      
+
+      <!-- <p>Contact information: </p>
+      <p>CollegePlus™ Instagram: <a href="https://instagram.com/collegeplusstudents" style="color:#ff6347"> @collegeplusstudents </a></p> 
+       <p> Logan Sage's Instagram:<a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq" style="color:#ff6347"> @logan.sage   </a><p>  </p><a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq"><img src="{% static '/picture/Logan.jpg" style="width: 30px; height:30px;border-radius: 50%;"></img></a></p>
+      <p> Lauren-Megan Botha's Instagram: <a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx" style="color:#ff6347"> @laurenmegan.b   </a><p>  </p><a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx"><img src="{% static '/picture/Lauren.jpg" style="width: 30px; height:30px;border-radius: 50%"></img></a></p>
+      <p> Seun Suberu's Instagram: <a href="https://www.instagram.com/sensei.seun/" style="color:#ff6347"> @sensei.seun   </a><p>  </p><a href="https://www.instagram.com/sensei.seun/"><img src="{% static '/picture/Seun.jpg" style="width: 30px; height:30px;border-radius: 50%; "></img></a></p> -->
+    </footer>
+    </body>
+</html>

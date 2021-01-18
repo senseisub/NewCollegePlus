@@ -1,0 +1,304 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/picture/blackcircl2.png'%}"/>
+    <link rel="shortcut icon" href="{% static '/picture/blackcircl2.png'%}" />
+    <link rel="address bar icon" href="{% static '/picture/blackcircl2.png'%}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/picture/blackcircl2.png'%}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static '/picture/blackcircl2.png'%}"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/picture/blackcircl2.png'%}"/>
+   <!-- <link rel="manifest" href="/site.webmanifest"> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Outline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static '/picture/blackcircl2.png'%}">
+    <link rel="stylesheet" href = "{% static '/styles/knowdegree.css'%}">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-2209994521755973",
+              enable_page_level_ads: true
+        });
+    </script>
+    <script>
+        let list = [];
+        function collegequery(){
+           let url =  "https://api.data.gov/ed/collegescorecard/v1/schools.json?&_fields=id,school.name,2017.student.size,school.state,school.city,school.school_url,2017.admissions.act_scores.midpoint.cumulative,2017.admissions.sat_scores.midpoint.critical_reading,2017.admissions.sat_scores.midpoint.math,2017.cost.net_price.private.by_income_level.75001-110000,2017.cost.net_price.private.by_income_level.48001-75000,2017.cost.net_price.private.by_income_level.30001-48000,2017.cost.net_price.private.by_income_level.0-30000,2017.cost.net_price.public.by_income_level.75001-110000,2017.cost.net_price.public.by_income_level.48001-75000,2017.cost.net_price.public.by_income_level.30001-48000,2017.cost.net_price.public.by_income_level.0-30000,2017.cost.net_price.private.by_income_level.110001-plus,2017.cost.net_price.public.by_income_level.110001-plus,2017.student.demographics.race_ethnicity.black,2017.student.demographics.race_ethnicity.white,2017.student.demographics.race_ethnicity.asian,2017.student.demographics.race_ethnicity.hispanic,school.price_calculator_url&api_key=KpR5yoDP2jV5lIr5F4yA91Y8YnFLk3BBM8qdfkhi";
+
+        }
+        function wordFunction(){
+            var bigWord = $("#name").text();
+            var ij = 0;
+            var j = 0;
+            var Word = "";
+            var place = 1;
+            var start = 0;
+            var end = 0;
+            var businessName = "";
+            var dealName;
+            var location = "";
+            var description = "";
+            var dealType = "";
+            var date = "";
+            var time = "";
+            for(var i = 0; i < bigWord.length; i++){
+            if(bigWord.charAt(i) == '|'){
+                end = i;
+                if(place == 7){
+                    time = bigWord.substring(start, end);
+                }
+                j = i;
+                Word = bigWord.substring(ij, j);
+                ij = i+1;
+                start = i+1;
+                end = 0;
+                place = 1;
+
+                if(Word){
+                    var listword = "<div class='row'> <div style='width: 20%; padding: .5%; border-right-color: white'><img src='/pictures/movies.jpg' style='width: 100%; border-radius: 15px;'/></div><div style='width: 65%; font-size: 24pt; padding-left: 5%;''><p style='font-weight: 600;'>"+dealName+"<br><m>"+location+"</m><br><m>By: </m><m style='text-transform: uppercase'>"+ businessName+"</m><br><m>What: "+dealType+"</m><br><m>Description: "+description+"</m><br><br><m>Expires: "+date+ " at "+ time +"</m><br></p></div></div>";
+                    list.push(listword);
+                    // $( "#bigdiv" ).append( "<div class='row'> <div style='width: 20%; padding: .5%; border-right-color: white'><img src='/pictures/movies.jpg' style='width: 100%; border-radius: 15px;'/></div><div style='width: 65%; font-size: 24pt; padding-left: 5%;''><p style='font-weight: 600;'>"+dealName+"<br><m>"+location+"</m><br><m>By: </m><m style='text-transform: uppercase'>"+ businessName+"</m><br><m>What: "+dealType+"</m><br><m>Description: "+description+"</m><br></p></div></div>" );
+                }
+            }
+            else if(bigWord.charAt(i) == '~'){
+                end = i;
+                if(place == 1){
+                    businessName = bigWord.substring(start, end);
+                }
+                else if(place == 2){
+                    dealName = bigWord.substring(start, end);
+                }
+                else if(place == 3){
+                    location = bigWord.substring(start, end);
+                }
+                else if(place == 4){
+                    description = bigWord.substring(start, end);
+                }
+                else if(place == 5){
+                    dealType = bigWord.substring(start, end);
+                }
+                else if(place == 6){
+                    date = bigWord.substring(start, end);
+                }
+
+                start = i+1;
+                place++;
+            }
+            }
+        }
+        function SearchCollege(){
+            var input, filter, ul, li, a, i, txtValue;
+            filter = $("#name").val().toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName('li');
+
+
+            var counter = 0;
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                    counter++;
+
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+      function getCookie(cname) {
+       var name = cname + "=";
+       var decodedCookie = decodeURIComponent(document.cookie);
+       var ca = decodedCookie.split(';');
+       for(var i = 0; i <ca.length; i++) {
+         var c = ca[i];
+         while (c.charAt(0) == ' ') {
+           c = c.substring(1);
+         }
+         if (c.indexOf(name) == 0) {
+           return c.substring(name.length, c.length);
+         }
+       }
+       return "";
+     }
+     function checkCookie() {
+          var user=getCookie("username");
+          if (user != "") {
+            $("#setter").text(user);
+            $("#set1").val(user);
+          } else {
+            $("#set1").val("log in");
+          }
+        }
+
+     function onLoad(){
+          checkCookie();
+          $("#logout").click(function(){
+            document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.location.href = "/logout";
+          });
+          $("#logout").hover(function(){
+            $("#logout").css("cursor", "pointer");
+          });
+        }
+
+        window.onload = onLoad
+    </script>
+    <style>
+        .form__label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  display: block;
+  transition: all 0.3s;
+  transform: translateY(0rem);
+}
+
+.form__input {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  font-size: 1.2rem;
+  margin: 0 auto;
+  margin-top: 5%;
+  padding: 1.5rem 2rem;
+  border-radius: 0.8rem;
+  background-color: #EFEFEF;
+  border: none;
+  width: 50%;
+  display: block;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+}
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-4rem);
+  transform: translateY(-4rem);
+}
+#myUL {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  width: 54%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#myUL li a {
+  border: 1px solid #ddd; /* Add a border to all links */
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #EFEFEF; /* Grey background color */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Increase the font-size */
+  color: black; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee; /* Add a hover effect to all links, except for headers */
+}
+    </style>
+    <title>DegreePicker</title>
+  </head>
+  <body>
+    <nav role="navigation">
+      <div style="display: flex; flex-direction: row; position: fixed; top: 0; width: 100%; height: 120px; z-index: 2;">
+        <div style="height: 110px; width: 20%; background-color: #232323;">
+          <div style="width: 100%;">
+            <div id="menuToggle">
+              <input type="checkbox" />
+              <span></span>
+              <span></span>
+              <span></span>
+              <ul id="menu">
+                <a href="/"><li>Home</li></a><br>
+                <a href="/knowcollege"><li>CollegePicker</li></a><br>
+                <a href="/knowdegree"><li>DegreePicker</li></a><br>
+                <a href="/knowdevice"><li>DevicePicker</li></a><br>
+                <a href="/resources"><li> Resources</li></a><br>
+                <a href="/gpaCalculator"><li> GPACalculator</li></a><br>
+                <a href="/about"><li>About CollegePlus™</li></a><br>
+                <a href="/logout"><li>Log out</li></a><br>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="width: 60%;">
+          <div id="logo" style="width: inherit; text-transform: none;">
+            <a href="/">
+              <h1 id="college" style="font-size: 48pt; margin-top: 0px; height: 108px; padding-top: 1.2vh;;">College<m id="plus" style="font-size: 48pt;">Plus </m></h1>
+            </a>
+          </div>
+        </div> 
+        <div style="height: 110px; width: 20%; background-color: #232323;">
+          <div id="poop">
+            <form action="/login_page" method="get">
+              <input name = "set1" id= "set1" type="text" style="display: none;"/>
+              <p  style="margin-top: -10px;"><e id = "setter" name = "setter">{{name}}</e> | <button type="submit" name="button" style="vertical-align: middle;"><i class="material-icons">account_circle</i></button> </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+      <div id="knowdegree" style="margin-bottom: 20%;">
+        <input type="text" class="form__input" id="name" placeholder="Madeupville, USA" required=""  />
+            <!-- <label for="name" class="form__label">USA</label> -->
+            <ul id="myUL" style="display: none;">
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+
+                <li><a href="#"></a></li>
+
+            </ul>
+        <a  href="/degree_questions"><button id="yesbtn" type="button" name="yes"> I want to try it!</button></a>
+        <a href="/knowcollege"><button id="nobtn"  type="button" name="no"> Nah I'm good</button></a>
+        
+      </div>
+      <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- </nav> -->
+    <footer >
+      <div>
+        <ins class="adsbygoogle"
+        style="display:block; text-align:center;"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-2209994521755973"
+        data-ad-slot="9243687244"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <div style="display: flex; flex-direction: row; padding-bottom: 0%; padding-top: 3%;">
+        <div style="width: 40%; text-align: right;">
+          <img src= "{% static '/picture/blackcircl2.png'%}" style="width: 50px; height: 50px; margin-top: 10px; margin-right: 10%;"></img>
+        </div>
+        <div style="width: 60%; text-align: left;">
+          <p style="margin-top: 3.2%;">CollegePlus™ by Slo-Meg Technologies</p>
+        </div>
+      </div>
+
+      
+
+      <!-- <p>Contact information: </p>
+      <p>CollegePlus™ Instagram: <a href="https://instagram.com/collegeplusstudents" style="color:#ff6347"> @collegeplusstudents </a></p> 
+       <p> Logan Sage's Instagram:<a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq" style="color:#ff6347"> @logan.sage   </a><p>  </p><a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq"><img src="{% static '/picture/Logan.jpg" style="width: 30px; height:30px;border-radius: 50%;"></img></a></p>
+      <p> Lauren-Megan Botha's Instagram: <a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx" style="color:#ff6347"> @laurenmegan.b   </a><p>  </p><a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx"><img src="{% static '/picture/Lauren.jpg" style="width: 30px; height:30px;border-radius: 50%"></img></a></p>
+      <p> Seun Suberu's Instagram: <a href="https://www.instagram.com/sensei.seun/" style="color:#ff6347"> @sensei.seun   </a><p>  </p><a href="https://www.instagram.com/sensei.seun/"><img src="{% static '/picture/Seun.jpg" style="width: 30px; height:30px;border-radius: 50%; "></img></a></p> -->
+    </footer>
+  </body>
+</html>

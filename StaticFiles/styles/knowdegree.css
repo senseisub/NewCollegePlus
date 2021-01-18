@@ -1,0 +1,122 @@
+body{
+  background-color: #FF0000;
+  margin: 0;
+  padding: 0;
+
+  /* make it look decent enough */
+  background: white;
+  color: #cdcdcd;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-appearance: none;
+}
+
+footer {
+  background-color: #232323;
+  margin-bottom: -20px;
+  /* position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  /* color: white; */
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+#plus{
+  color:tomato;
+  font-size: 85px;
+}
+#college{
+  color:lightgrey;
+  font-size: 85px;
+  border-color: 2px solid black;
+  /* margin: -5px; */
+  font-family: "Segoe UI",Arial,sans-serif; 
+  font-weight: 400;
+}
+#knowdegree{
+  margin-top: 20vh;
+  justify-content: center;
+  text-align: center;
+  padding-bottom : 20vh;
+
+
+}
+#btns{
+
+}
+#yesbtn{
+  margin-top: 50px;
+  border-radius: 25px;
+  background-color: tomato;
+  color: white;
+  padding: 18px;
+  padding-left: 55px;
+  padding-right: 55px;
+  font-size: 16px;
+  cursor: pointer;
+  /* border: 5px outset tomato; */
+  opacity: 1;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+
+}
+#nobtn{
+  margin-top: 50px;
+  border-radius: 25px;
+  background-color: #343434;
+  color: white;
+  padding: 18px;
+  padding-left: 55px;
+  padding-right: 55px;
+  font-size: 16px;
+  cursor: pointer;
+  /* border: 5px outset tomato; */
+  opacity: 1;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+
+}
+#yesbtn:hover{
+  background-color: #dd4125;
+}
+#nobtn:hover{
+  background-color: #232323;
+}
+#question{
+  color:black;
+  justify-content: center;
+  text-align: center;
+  font-size: 36pt;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+}
+
+#myUL {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  width: 54%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#myUL li a {
+  border: 1px solid #ddd; /* Add a border to all links */
+  margin-top: -1px; /* Prevent double borders */
+  background-color: white; /* Grey background color */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Increase the font-size */
+  color: black; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee; /* Add a hover effect to all links, except for headers */
+}
+button{
+  cursor: pointer;
+}

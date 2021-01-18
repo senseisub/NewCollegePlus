@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="address bar icon" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/pictures/collegeplus2.png'%}" />
+   <link rel="icon" type="image/png" sizes="32x32" href="{% static '/pictures/collegeplus2.png'%}"/>
+   <link rel="icon" type="image/png" sizes="16x16" href="{% static '/pictures/collegeplus2.png'%}"/>
+   <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Outline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static '/pictures/collegeplus2.png'%}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href = "{% static '/styles/mknowdegree.css'%}">
+    </link>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <script src="{% static '/scripts/scripts2.js'%}">
+    </script>
+    <meta charset="utf-8">
+    <title>About CollegePlus</title>
+    <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-2209994521755973",
+              enable_page_level_ads: true
+        });
+    </script>
+  </head>
+  <body>
+    <nav role="navigation">
+      <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="menu">
+          <a href="/mobile/home"><li>Home</li></a><br>
+          <a href="/mobile/knowcollege"><li>CollegePicker</li></a><br>
+          <a href="/mobile/knowdegree"><li>DegreePicker</li></a><br>
+          <a href="/mobile/knowdevice"><li>Device Picker</li></a><br>
+          <a href="/mobile/resources"><li> Resources</li></a><br>
+          <a href="/mobile/gpaCalculator"><li> GPACalculator</li></a><br>
+          <a href="/mobile/about"><li>About CollegePlus™</li></a><br>
+          <a href="/mobile/logout"><li>Log out</li></a><br>
+        </ul>
+      </div>
+      <div id="logo" style="text-align: center; justify-content: center;">
+        <h1 style="width:45%; margin: auto; cursor: pointer; height: 100%; padding-top: 2%; margin-top: .8vh;" id="college">College<m id="plus"> + </m></h1>        
+      </div>
+      <div id="poop">
+        <form action="/mobile/login_page" method="get">
+          <p style="margin-top: -10px; font-size: 3vw; height: 100%;"> <button type="submit" name="button" style="vertical-align: middle; height: 60px; color: {{iconcolor}}; max-width: 70px; text-align: center;"><i style="font-size: 40pt;" class="material-icons">account_circle</i></button></p>
+        </form>
+      </div> 
+      <div id="knowcollege" style="margin-bottom: 5%; margin-top: 20%;">
+        <h2 id="question" style="font-family: Poppins, sans-serif; font-weight: 500;">About CollegePlus™</h2>
+      </div>
+      <div style = "display: flex; flex-direction: row; width: 75%; margin-right: auto; margin-left: auto;">
+          <div style="width: 70%; background-color: #232323; text-align: center; vertical-align: middle;  border-radius: 15px;">
+            <p style="color: white; font-size: 6vw; margin-top: 15%; margin-bottom: 15%;">College<m style= "color: tomato; font-size: 6vw;">Plus</m></p>
+          </div>
+          <div style="width: 30%;">
+            <img src="{% static '/pictures/collegeplus2.png'%}" style="width: 100%;"/>
+          </div>
+      </div>
+      <div style="width: 75%; margin-left: auto; margin-right: auto; color: black; line-height: 48pt;">
+          <h2 style="font-family: Poppins, sans-serif; font-weight: 300;">
+              CollegePlus is a web-application made by class of 2019 high school graduates.
+              The creators made this website because they had a terrible experience finding a college.
+              We all have friends and people at our high schools who graduated not knowing what they should study and they had trouble
+              finding a good college to attend. Many of them just ended up settling. It is never good to settle for something so important. 
+              College is one of the most defining experiences in life and the college we attend should match our personality.
+              CollegePlus aims to solve all the issues with the college search process. We want to be the swiss army knife that simplifies the college process 
+              and puts all college resources in one place. 
+          </h2>
+      </div>
+      <div style="width: 75%; margin-right: auto; margin-left: auto;">
+          <img src="{% static '/picture/theteam.jpg" style="width: 100%; border-radius: 15px;" />
+      </div>
+      <div style="text-align: center; width: 75%; margin-left: auto; margin-right: auto;">
+        <h2 style="color: black; font-family: Poppins, sans-serif; font-weight: 500;">
+            The Creators
+        </h2>
+        <p style="color: black; font-family: Poppins, sans-serif; font-weight: 300;">
+            (From left to right) Lauren-Megan Botha, Seun Suberu, Logan Sage
+        </p>
+        <p style="color: black; font-family: Poppins, sans-serif; font-weight: 300;">
+            <t style="font-weight: 500; color: black;">Lauren-Megan Botha</t> - 18 year old from Austin, Texas that aims to be a lobbyist/consultant for tech, or her second choice of going into the industry and then creating her own company. Now attend University of Chicago. Contributed to making this web application because the college search process was hell for her. She contributed to making the web app by being the back-end developer working mainly on the API and logic of main website functions. 
+        </p>
+        <p style="color: black; font-family: Poppins, sans-serif; font-weight: 300;">
+            <t style="font-weight: 500; color: black;">Seun Suberu</t> - 18 year old from Dallas, Texas that aims to be an Artificial Intelligence Software Engineer. Now attends Southern Methodist University as a Computer Science major and Statistical Science minor. Contributed to making this web application because he wishes he had a better experience finding the right college, and feels as if he got lucky with the one he chose. He contributed with the web app by being the back-end and Front-end intermediate, overseen the fluidity and consistency of web application.
+        </p>
+        <p style="color: black; font-family: Poppins, sans-serif; font-weight: 300;">
+            <t style="font-weight: 500; color: black;">Logan Sage</t> - 18 year old from Las Cruces, New Mexico that aims to be a web developer. Now attends New Mexico State University but hopes to go a different route and take a coding bootcamp in the summer at UT Austin. Contributed to making this web application because he feels like the college search process is hell. He contributed with the web app by being the front-end designer and compiler, made the website from scratch to make the website look how it is now.
+        </p>
+      </div>
+      <div class="container marketing">
+  
+        <!-- Three columns of text below the carousel -->
+        <div class="row" style="margin-top: 5%; margin-bottom: 7%; width: 100%; display: flex; flex-direction: row;">
+          <div class="col-lg-4" style="max-width: 33%; text-align: center;">
+            <img style= "border-radius: 50%; max-width: 40%;" src= "{% static '/pictures/Seun2.jpg'%}">
+            <h2 style="color: black">Seun Suberu</h2>
+            <p style="color: black">Co-Founder and Current Operations Manager</p>
+            <p style="color: white"><a class="btn btn-secondary" href="https://www.instagram.com/sensei.seun/" role="button" style="background-color: tomato; border: 0; border-radius: 10px; padding: 3%; color: white">Follow on Social Media</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4" style="max-width: 33%; text-align: center;">
+            <img style= "border-radius: 50%; max-width: 40%;" src= "{% static '/pictures/Logan.jpg'%}">
+            <h2 style="color: black">Logan Sage</h2>
+            <p style="color: black">Co-Founder</p>
+            <p style="color: white"><a class="btn btn-secondary" href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq" role="button" style="background-color: tomato; border: 0; border-radius: 10px; padding: 3%; color: white">Follow on Social Media</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4" style="max-width: 33%; text-align: center;">
+            <img style= "border-radius: 50%; max-width: 40%;" src= "{% static '/pictures/Lauren.jpg'%}">
+            <h2 style="color: black">Lauren-Megan Botha</h2>
+            <p style="color: black">Co-Founder</p>
+            <p style="color: white"><a class="btn btn-secondary" href="https://instagram.com/laurenmegan.b/" role="button" style="background-color: tomato; border: 0; border-radius: 10px; padding: 3%; color: white">Follow on Social Media</a></p>
+          </div><!-- /.col-lg-4 -->
+          
+        </div><!-- /.row -->
+      <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-2209994521755973"
+          data-ad-slot="9243687244"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    <footer >
+      <div style="display: flex; flex-direction: row; padding-bottom: 0%; padding-top: 3%;">
+        <div style="width: 40%; text-align: right;">
+          <img src= "{% static '/pictures/collegeplus2.png'%}" style="width: 50px; height: 50px; margin-top: 10px; margin-right: 10%;"></img>
+        </div>
+        <div style="width: 60%; text-align: left;">
+          <p style="margin-top: 4.3%;">CollegePlus™ by Slo-Meg Technologies</p>
+        </div>
+      </div>
+
+      
+
+      <!-- <p>Contact information: </p>
+      <p>CollegePlus™ Instagram: <a href="https://instagram.com/collegeplusstudents" style="color:#ff6347"> @collegeplusstudents </a></p> 
+       <p> Logan Sage's Instagram:<a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq" style="color:#ff6347"> @logan.sage   </a><p>  </p><a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq"><img src="{% static '/picture/Logan.jpg" style="width: 30px; height:30px;border-radius: 50%;"></img></a></p>
+      <p> Lauren-Megan Botha's Instagram: <a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx" style="color:#ff6347"> @laurenmegan.b   </a><p>  </p><a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx"><img src="{% static '/picture/Lauren.jpg" style="width: 30px; height:30px;border-radius: 50%"></img></a></p>
+      <p> Seun Suberu's Instagram: <a href="https://www.instagram.com/sensei.seun/" style="color:#ff6347"> @sensei.seun   </a><p>  </p><a href="https://www.instagram.com/sensei.seun/"><img src="{% static '/picture/Seun.jpg" style="width: 30px; height:30px;border-radius: 50%; "></img></a></p> -->
+    </footer>
+  </body>
+</html>

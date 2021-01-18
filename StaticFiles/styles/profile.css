@@ -1,0 +1,94 @@
+body
+{
+  background-color: white;
+  margin: 0;
+  padding: 0;
+
+  /* make it look decent enough */
+  background: white;
+  color: #cdcdcd;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-appearance: none;
+}
+
+#plus{
+  color:tomato;
+  font-size: 85px;
+}
+#college{
+  color:lightgrey;
+  font-size: 85px;
+  border-color: 2px solid black;
+  margin-top: 0px;
+  font-family: "Segoe UI",Arial,sans-serif; 
+  font-weight: 400;
+}
+#backy{
+  margin-top: 150px;
+  cursor: pointer;
+  font-size: 40px;
+  color:tomato;
+}
+#texty{
+  font-size:50px;
+  /* text-align: */
+
+
+}
+#personcenter{
+  text-align: center;
+}
+#person{
+  color:black;
+  font-size: 300px;
+}
+#tablecenter{
+  color:black;
+  margin-bottom: 5%;
+
+}
+footer {
+  background-color: #232323;
+  margin-bottom: -20px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+#profile{
+  color:black;
+  padding-bottom: 1vh;
+}
+#tablecenter h2{
+  color:tomato;
+
+}
+.profilebigdiv{
+  color: black;
+  text-align: center;
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+}
+ml{
+  font-weight: 700;
+}
+i{
+  margin-bottom: -5px;
+}
+
+.infoRow{
+  display: flex; 
+  flex-direction: row; 
+  margin-bottom: 5%; 
+  width: 80%; 
+  margin-left: auto; 
+  margin-right: auto;
+  align-items: normal;
+}
+
+.infoRow2{
+  width:100%; 
+  display: flex; 
+  flex-direction: row;
+  align-items: normal;
+
+}

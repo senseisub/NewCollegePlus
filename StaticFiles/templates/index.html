@@ -1,0 +1,293 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href=" {% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" href=" {% static '/pictures/collegeplus2.png'%}" />
+    <link rel="address bar icon" href=" {% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" type="image/x-icon" href=" {% static '/pictures/collegeplus2.png'%}" />
+    <link rel="icon" type="image/png" sizes="32x32" href=" {% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="icon" type="image/png" sizes="16x16" href=" {% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="manifest" href="/site.webmanifest">
+    <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Outline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="description" content="College Help and Recommendations">
+    <meta name="keywords" content="College, CollegePlus, College Plus, College+, College +, find, a, college, degree recommendations, major, what, major, should, I, pursue, do, college help, laptops, college laptops, studying tips, SAT Prep, SAT help, College Dates, College Admissions, Resume Builder">
+    <meta name="author" content="Logan Sage">
+    <meta name="author" content="Lauren-Megan Botha">
+    <meta name="author" content="Seun Suberu">
+    <link rel="stylesheet" href = " {% static '/styles/index.css'%}">
+    <link rel="stylesheet" href = "{% static 'styles/headerTemplate.css' %}">
+
+    <!-- For the carousel -->
+    <style>.mySlides {display:none;}</style>
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css'%}"> -->
+    <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-2209994521755973",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <meta name="google-signin-scope" content="profile email">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="319129394434-rdvlugdj0tua8k6lr69eu6a9e63l8059.apps.googleusercontent.com">
+
+    <script src=" {% static '/scripts/script.js'%}">
+    
+    </script>
+    <script src="{% static 'scripts/header.js' %}"></script>
+    <script>
+        $( document ).ready(function() {
+          if(isMobile){
+            $(".homebutt").css({"font-size" : "1.3vh"});
+          }
+        });
+        function onLoad(){
+
+
+          $("#mainbutton1").click(function(){
+          document.location.href = "/knowdegree";
+          });
+          $("#mainbutton2").click(function(){
+            document.location.href = "/knowcollege";
+          });
+          $("#mainbutton3").click(function(){
+            document.location.href = "/gpaCalculator";
+          });
+          $("#homebutt1").click(function(){
+            document.location.href  = "/knowdegree";
+          });
+          $("#homebutt2").click(function(){
+            document.location.href  = "/knowcollege";
+          });
+          $("#homebutt3").click(function(){
+            document.location.href  = "/gpaCalculator";
+          });
+          $("#logout").click(function(){            
+            document.location.href = "/logout";
+          });
+          $("#logout").hover(function(){
+            $("#logout").css("cursor", "pointer");
+          });
+          
+        }
+
+        window.onload = onLoad;
+
+        $( window ).resize(function() {
+          if(($( window ).height()/ $( window ).width()) > 1.5 || isMobile){
+            $(".homebutt").css({"font-size" : "1.3vh"});
+  
+          }
+          else{
+            $(".homebutt").css({"font-size" : "3vh"});
+
+          }
+        });
+    </script>
+    <title>Home</title>
+  </head>
+  <body>
+    <div style = "background-color: #232323;">
+        <nav role="navigation" id = "navbar">
+          <div id="menuToggle" style = "width : 20vw; min-width: 50px;">
+            <div id = 'box' style = "padding-top: 2vw; margin-left: 2vw; padding-right: 10vw;" onclick="boxClick()">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <input type="checkbox" id = "check"/>
+            <ul id="menu" style="font-family: 'Montserrat', sans-serif;">
+              <a href="/home"><li class = "menuElements">Home</li></a><br>
+              <a href="/knowcollege"><li class = "menuElements">CollegePicker</li></a><br>
+              <a href="/knowdegree"><li class = "menuElements">DegreePicker</li></a><br>
+              <a href="/knowdevice"><li class = "menuElements">DevicePicker</li></a><br>
+               <a href="/knowSupplies"><li class = "menuElements">SuppliesPicker</li></a><br>
+          <a href="/buyOrSell"><li class = "menuElements">ProductPicker</li></a><br>              <a href="/resources"><li class = "menuElements"> Resources</li></a><br>
+              <a href="/gpaCalculator"><li class = "menuElements"> GPACalculator</li></a><br>
+              <a href="/about"><li class = "menuElements">About CollegePlus™</li></a><br>
+              <a href="/logout"><li class = "menuElements">Log out</li></a><br>
+            </ul>
+  
+          </div>
+          
+          <div id="logo" onclick="logoClick('{{city}}')">
+            <h1 class = 'bigTitle'>
+          <m>College</m><m style ="color: tomato">Plus</m>
+        </h1>
+            <!-- <img src="{% static 'pictures/Lyfe_Here_header.png' %}" class="logo-image center d-inline-block align-middle" style = "min-width: 200px;" alt="Lyfe Here Logo" > -->
+          </div>
+          <div style = "width : 20vw;">
+            <div id="poop" style = "text-align: right;">
+              <i class="material-icons" id = "personIcon" onclick="goToSave()">account_circle</i> 
+            </div>
+          </div>
+        </nav>
+        <div class="scene" id="caro">
+          <div class="carousel">
+            <div class="carousel__cell">
+              <p>"I keep hearing about college and have no idea where to start😕"</p>
+            </div>
+            <div class="carousel__cell">
+              <p>"I have no idea where to start my college search😬"<p>
+            </div>
+            <div class="carousel__cell">
+              <p>"I tried looking into college but everything was so confusing😣"<p>
+            </div>
+            <div class="carousel__cell">
+              <p>"I want to go to college but I don't know which degree path is for me🤔"<p>
+            </div>
+            <div class="carousel__cell">
+              <p>"I have no idea where I want to go to college😓"<p>
+            </div>
+            <div class="carousel__cell">
+              <p>"I don't know what I need to do to prepare for college admissions🤒"<p>
+            </div>
+            <div class="carousel__cell">
+              <p>"I got into college but I don't know what computer to take🧐"<p>
+            </div>
+            <div class="carousel__cell">
+              <p>"What tests do I need to take to get into colleges🤨"<p>
+            </div>
+            <div class="carousel__cell">
+              <p>"I wish there was one place I could to all of my college prepping🙏"<p>
+            </div>
+          </div>
+        </div>
+      <div id ="gettingstarted">
+        <h1 style="font-family: 'Poppins', sans-serif; font-size: 36pt; color: #ffffff;">Feeling The Same?</h1>
+        <h2 style="font-family: 'Poppins', sans-serif; font-size: 20pt; color: #ffffff;">College<t style="color: tomato;">Plus</t>™ is the academic advisor you wish you had!</h2>
+        <h1 style="font-family: 'Poppins', sans-serif; font-size: 36pt; color: #ffffff;">Get Help With College<t style="color: tomato;">+</t> Now</h1>
+        <h2 style="font-family: 'Poppins', sans-serif; font-size: 20pt; color: #ffffff;">sign in and <br><f style="color: tomato;">+</f><br>scroll down to get started</h2>
+      </div>
+      <script>
+        var carousel = document.querySelector('.carousel');
+        var cellCount =9;
+        var selectedIndex = 0;
+
+        function rotateCarousel() {
+          selectedIndex++;
+
+          var angle = selectedIndex / cellCount * -360;
+          carousel.style.transform = 'translateZ(350px) rotateY(' + angle + 'deg)';
+
+          setTimeout(
+            rotateCarousel
+        ,3000);
+        }
+
+        // var prevButton = document.querySelector('.previous-button');
+        // prevButton.addEventListener( 'click', function() {
+        //   selectedIndex--;
+        //   rotateCarousel();
+        // });
+        var placeholder =0;
+        var nextButton = document.querySelector('#caro');
+        $(document).ready(function(){
+            $("#caro").trigger("click");
+        });
+        nextButton.addEventListener( "click", function() {
+
+          rotateCarousel();
+
+
+          placeholder++;
+
+
+
+
+
+
+
+        });
+
+
+
+//       var myIndex = 0;
+// carousel();
+
+//       function carousel() {
+//         var i;
+//         var x = document.getElementsByClassName("carousel__cell");
+//         for (i = 0; i < x.length; i++) {
+//           x[i].style.display = "none";
+//         }
+//         myIndex++;
+//         if (myIndex > x.length) {myIndex = 1}
+//         x[myIndex-1].style.display = "block";
+//         setTimeout(carousel, 2000); // Change image every 2 seconds
+//         }
+      </script>
+      <div id="question">
+        <!-- <h1 id="first">How prepared am I for college?...</h1> -->
+        <div  style="margin-top: 5vh; display: flex;flex-direction: column; height: 10%; margin-bottom: 20%; line-height: 1;">
+          <div class = 'divButton' >
+            <button class = "homebutt" id= "homebutt1"><a href="/knowdegree">I don't even know what major I want to pursue</a></button>
+          </div>
+          <div class = 'divButton'>
+            <button class = "homebutt" id = "homebutt2"><a href="/knowcollege">I don't know what college is good for me</a></button>
+          </div>
+          <div class = 'divButton' >
+            <button class = "homebutt" id = "homebutt3"><a href="/gpaCalculator">I don't even know my GPA bro, I need help<br></a></button>
+          </div>
+        </div>
+          <!-- <div class="homepagebuttons">
+            <div class= "divvy">
+              <button class = "mainbutton" id="mainbutton1"><a href="/knowdegree">I don't even know what major I want to pursue</a></button>
+            </div>
+            <div class= "divvy">
+              <button class = "mainbutton" id="mainbutton2"><a href="/knowcollege">I don't know what college is good for me</a></button>
+            </div>
+            <div class= "divvy">
+              <button class = "mainbutton" id="mainbutton3"><a href="/gpaCalculator">I don't even know my GPA bro, I need help<br></a></button>
+            </div>
+          </div> -->
+      </div>
+</div>  
+    <footer >
+      <div>
+        <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-2209994521755973"
+        data-ad-slot="3051770603"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <div style="display: flex; flex-direction: row; padding-bottom: 0%; padding-top: 3%;">
+        <div style="width: 40%; text-align: right;">
+          <img src= "{% static '/pictures/collegeplus2.png'%}" style="width: 50px; height: 50px; margin-top: 10px; margin-right: 10%;"></img>
+        </div>
+        <div style="width: 60%; text-align: left;">
+          <p style="margin-top: 3.2%;">CollegePlus™ by Slo-Meg Technologies</p>
+        </div>
+      </div>
+
+      
+
+      <!-- <p>Contact information: </p>
+      <p>CollegePlus™ Instagram: <a href="https://instagram.com/collegeplusstudents" style="color:#ff6347"> @collegeplusstudents </a></p> 
+       <p> Logan Sage's Instagram:<a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq" style="color:#ff6347"> @logan.sage   </a><p>  </p><a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq"><img src="{% static '/picture/Logan.jpg" style="width: 30px; height:30px;border-radius: 50%;"></img></a></p>
+      <p> Lauren-Megan Botha's Instagram: <a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx" style="color:#ff6347"> @laurenmegan.b   </a><p>  </p><a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx"><img src="{% static '/picture/Lauren.jpg" style="width: 30px; height:30px;border-radius: 50%"></img></a></p>
+      <p> Seun Suberu's Instagram: <a href="https://www.instagram.com/sensei.seun/" style="color:#ff6347"> @sensei.seun   </a><p>  </p><a href="https://www.instagram.com/sensei.seun/"><img src="{% static '/picture/Seun.jpg" style="width: 30px; height:30px;border-radius: 50%; "></img></a></p> -->
+    </footer>
+  </div>
+
+  </body>
+</html>

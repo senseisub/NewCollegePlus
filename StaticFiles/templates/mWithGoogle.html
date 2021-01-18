@@ -1,0 +1,426 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="address bar icon" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Outline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static '/pictures/collegeplus2.png'%}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href = "{% static '/styles/mknowcollege.css'%}">
+    </link>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <meta name="google-signin-scope" content="profile email">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="319129394434-rdvlugdj0tua8k6lr69eu6a9e63l8059.apps.googleusercontent.com">
+
+    <!-- <script src="{% static '/scripts/scripts2.js'%}"> -->
+    </script>
+    <meta charset="utf-8">
+    <title>Sign Up</title>
+    <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-2209994521755973",
+              enable_page_level_ads: true
+        });
+    </script>
+    <style>
+        body{
+            background-color: #efefef;
+        }
+
+        .google-btn {
+        width: 200px;
+        height: 50px;
+        background-color: #4285f4;
+        border-radius: 2px;
+        box-shadow: 0 3px 4px 0 rgba(0,0,0,.25);
+        }
+        .google-icon-wrapper {
+            position: absolute;
+            margin-top: 1px;
+            margin-left: 1px;
+            width: 40px;
+            height: 50px;
+            border-radius: 2px;
+            background-color: white;
+        }
+        .google-icon {
+            position: absolute;
+            margin-top: 15px;
+            margin-left: 11px;
+            width: 18px;
+            height: 18px;
+        }
+        .btn-text {
+            float: right;
+            margin: 11px 11px 0 0;
+            color: white;
+            font-size: 12pt;
+            letter-spacing: 0.2px;
+            font-family: "Roboto";
+        }
+        .btn-text:hover {
+            box-shadow: 0 0 6px #4285f4;
+        }
+        .btn-text:active {
+            background: #1669F2;
+        }
+        
+
+        @import url(https://fonts.googleapis.com/css?family=Roboto:500);
+    </style>
+    <script>
+        function signOut() {
+                var auth2 = gapi.auth2.getAuthInstance();
+                auth2.signOut().then(function () {
+                });
+            }
+
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            // console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            // console.log('Name: ' + profile.getName());
+            // console.log('Image URL: ' + profile.getImageUrl());
+            // console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+            $("#googleUsername").val(profile.getEmail());
+            $("#googleImage").val(profile.getImageUrl());
+            while($("#googleUsername").val().length == 0){
+
+            }
+            signOut();
+            $("#google").submit();
+        }
+        function setCookie(cname,cvalue,exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            var expires = "expires=" + d.toGMTString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for(var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkCookie(str) {
+            var user=getCookie(str);
+            if (user != "") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        var valUser = false;
+        var valPassword = false;
+        var passwordClicked = false;
+        function checkLegitmacy(){
+            var x = $("#username").val();
+            var indexOfAt = 0;
+            var indexOfDot = 0;
+            for(var i = 0; i < x.length; i++){
+                if(x.charAt(i) == '@'){
+                    indexOfAt = i;
+                }
+                else if(x.charAt(i) == '.'){
+                    indexOfDot = i;
+                }
+            }
+            if(indexOfAt == 0 || indexOfDot == 0 || indexOfAt > indexOfDot){
+                valUser= false;
+                $("#emailchecker").css("display", "block");
+                $("#emailchecker").text("That is not a valid email");
+            }
+            else{
+                $("#emailchecker").css("display", "none");
+                valUser = true;
+            }
+        }
+
+        function passwordLegitmacy(){
+            passwordClicked = true;
+            var x = $("#password").val();
+            var numNums = 0;
+            var numLetters = 0;
+            var numSpecials = 0;
+            for(var i = 0; i < x.length; i++){
+                
+                if((x.charAt(i)>= 'a' && x.charAt(i) <= 'z') || (x.charAt(i)>= 'A' && x.charAt(i) <= 'Z')){
+                    numLetters++;
+                }
+                else if((x.charAt(i)>= '0' && x.charAt(i) <= '9')){
+                    numNums++;
+                }
+                else{
+                    numSpecials++;
+                }
+            }
+            
+            if(numNums > 0 && numLetters > 0 && numSpecials > 0 && x.length > 7){
+                $("#error").css("display", "none");
+                valPassword = true;
+            }
+            else{
+                valPassword = false;
+                $("#error").css("display", "block");
+                $("#error").text("That is not a valid password");
+            }
+        }
+
+        function onLoad(){
+            if($("#error").text() != "{{name}}"){
+                $("#error").css("display", "block");
+            }
+            
+            $("#password").focus(checkLegitmacy);
+            if(passwordClicked){
+                $("#username").focus(passwordLegitmacy);
+            }
+            
+            
+            $("#subButt").click(function(){
+                checkLegitmacy();
+                passwordLegitmacy();
+
+                if(!valUser || !valPassword){
+                    
+                    $("#error").text("Invalid Username or Password");
+                    $("#error").css("display", "block");
+                    return;
+                }
+                else{
+
+                    $("#error").css("display", "none");
+                }
+                var x = $("#username").val();
+                var y = $("#password").val();
+                if(checkCookie("username")){
+                    
+                    document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                }
+                if(checkCookie("password")){
+                    document.cookie = "password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                }
+                setCookie("username",x, 1);
+                setCookie("password",y, 1 );
+                if(valPassword && valUser){
+                    $("#form").submit();
+                }
+                else{
+                   
+                    $("#error").text("Invalid Username or Password");
+                }
+                
+            });
+            $("#Privacy").change(() => {
+                if($("#Privacy").is(':checked')){
+                    $("#subButt").prop('disabled', false);
+                }
+                else{
+                    $("#subButt").prop('disabled', true);
+                }
+            });
+            if($("#Privacy").is(':checked')){
+                $("#subButt").prop('disabled', false);
+            }
+            else{
+                $("#subButt").prop('disabled', true);
+            }
+
+            $("#Privacy2").change(() => {
+                if($("#Privacy2").is(':checked')){
+                    $("#googleSubmitter").prop('disabled', false);
+                }
+                else{
+                    $("#googleSubmitter").prop('disabled', true);
+                }
+            });
+            if($("#Privacy2").is(':checked')){
+                $("#googleSubmitter").prop('disabled', false);
+            }
+            else{
+                $("#googleSubmitter").prop('disabled', true);
+            }
+            $("#signUp").click(function(){
+                    document.location.href = "/mobile/Login";
+             });
+             $("#TextOn").click(function(){
+                var x = document.getElementById("password");
+                if (x.type === "password") {
+                    $("#password").prop("type", "text");
+                } else {
+                    $("#password").prop("type", "password");
+                }
+            });
+            $("#college").click(function(){
+                document.location.href = "/mobile/home";
+            });
+            $("#forgotpassword").click(() => {document.location.href = "/mobile/ForgotPassword"});
+            $("#logo").click(function(){
+            document.location.href = "/mobile/home";
+          });
+        }
+        window.onload = onLoad;
+    </script>
+  </head>
+  <body>
+    <nav role="navigation">
+      <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="menu">
+          <a href="/mobile/home"><li>Home</li></a><br>
+          <a href="/mobile/knowcollege"><li>CollegePicker</li></a><br>
+          <a href="/mobile/knowdegree"><li>DegreePicker</li></a><br>
+          <a href="/mobile/knowdevice"><li>Device Picker</li></a><br>
+          <a href="/mobile/resources"><li> Resources</li></a><br>
+          <a href="/mobile/gpaCalculator"><li> GPACalculator</li></a><br>
+          <a href="/mobile/about"><li>About CollegePlus™</li></a><br>
+          <a href="/mobile/logout"><li>Log out</li></a><br>
+        </ul>
+      </div>
+      <div id="logo" style="text-align: center; justify-content: center;">
+        
+            <h1 style="width:45%; margin: auto; cursor: pointer; height: 100%; padding-top: 2%; margin-top: .8vh;" id="college">College<m id="plus"> + </m></h1>
+          
+          </div>
+          <div style="margin-top: 20%; text-align: center;">
+              <h2 style="color: black; font-size: 24pt; font-family: Poppins, sans-serif; font-size: 36pt;">
+                  Sign up for CollegePlus!
+              </h2>
+          </div>
+            <div style="width: 100%; text-align: center; display: flex; flex-direction: column;">
+                <div style="text-align: center; width: 70%; margin-left: auto; margin-right: auto; text-align: center;">
+                    <form id = "form" method="post" action="/mobile/withGoogle" style="padding: 40px ;border: 3px solid #232323; border-radius: 15px; margin-top: 15%; max-width: 33vw; margin-left: auto; margin-right: auto;">
+                        <label for="username"  style="font-family: Poppins, sans-serif; color: black; font-size: 24pt;"> Email </label>
+                        <h3 id ="emailchecker" style="display:none; color: red">
+                            
+                        </h3>
+                        <input type="text" id = "username" name="username" style="width: 100%; /* Full width */
+                        padding: 12px; /* Some padding */
+                        border: 1px solid #ccc; /* Gray border */
+                        border-radius: 4px; /* Rounded borders */
+                        box-sizing: border-box; /* Make sure that padding and width stays in place */
+                        margin-top: 6px; /* Add a top margin */
+                        margin-bottom: 16px; /* Bottom margin */
+                        resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */"><br>
+                        <label for="password" style="font-family: Poppins, sans-serif; color: black; font-size: 18pt;" > Password (At least 8 characters long with Special Character, Number and Letter)</label>
+                        <input type="text" id = "password" name="password" style="width: 100%; /* Full width */
+                        padding: 12px; /* Some padding */
+                        border: 1px solid #ccc; /* Gray border */
+                        border-radius: 4px; /* Rounded borders */
+                        box-sizing: border-box; /* Make sure that padding and width stays in place */
+                        margin-top: 6px; /* Add a top margin */
+                        margin-bottom: 16px; /* Bottom margin */
+                        resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */"><br>
+                        <input type="checkbox" id="TextOn" style="padding-bottom: 5%"/> <m style = "color:black; margin-bottom: 5%; font-size: 15pt;">Show Password </m><br><br>
+                        <input type="checkbox" id = "Privacy" style="padding-bottom: 5%; font-size: 15pt;"/> <m style = "color:black; font-size: 15pt;">By Checking this box you agree to our <a href = "/TermsOfService" style="text-decoration: underline;">Terms Of Service</a> and <a href = "/PrivacyPolicy" style="text-decoration: underline;">Privacy Policies</a></m><br><br>
+                        <input id="subButt" type="button" style="background-color: tomato;
+                        color: white;
+                        font-size: 16pt;
+                        padding: 16px 25px;
+                        border: none;
+                        border-radius: 4px;
+                        cursor: pointer; -webkit-appearance: none;" value="Log In"/>
+                                
+                    </form>
+                    <h3 id = "error" style="color: red; display: none;">
+                        {{name}}
+                    </h3>
+                    </form>
+                </div>
+                    
+                <div style="width: 20%; margin-left: auto; margin-right: auto; height: 150px;">
+                    <div style="border-radius: 50%; background-color: #232323; height: 120px; width: 120px; margin: 0 auto; margin-top: 50px;">
+                        <h1 style="color: white; padding-top: 25%; font-size: 30pt;">
+                            O<m style="color: tomato;">R</m>
+                        </h1>
+                      </div>
+                </div>
+                <div style="width: 40%; margin-left: auto; margin-right: auto;">
+                    <form method="POST" action="/withGoogle" style="margin-bottom: 10%; justify-content: center;" id = "google"> 
+                        {% csrf_token %}
+                            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" style = "max-width: 300px; margin-left : auto; margin-right : auto; margin-top: 35%;" data-width="300" data-height="75"></div>
+                            <input type="text" id = "googleUsername" name = "googleUsername" style = "display: none;"/>
+                            <input type="text" id = "googleImage" name = "googleImage" style = "display: none;"/>
+                           <!-- <div class="google-icon-wrapper">
+                               <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" style="margin-left: -9px;"/>
+                           </div> -->
+                       <!-- <input id = "googleSubmitter" class = "google-btn" type="submit" value ="Sign in with google" style="text-align: right; color: white; font-weight: 300"></input> -->
+                        <h3 id = "error2" style="color: red; display: none;">
+                            {{name2}}
+                        </h3>
+                       </form>
+                    </div>
+                </div>
+              
+            </div>
+            <div style="text-align: center; margin-top: 25%;">
+                <h1 style="font-family: Poppins, sans-serif; color: black; font-size: 24pt;">
+                    Already Have An Account? Log In!
+                </h1>
+                <button id="signUp" style="background-color: tomato;
+                      color: white;
+                      font-size: 24pt;
+                      padding: 16px 25px;
+                      border: none;
+                      border-radius: 4px;
+                      cursor: pointer;">
+                              Log In!
+                  </button>
+            </div>
+        <!-- <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+            style="display:block; text-align:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2209994521755973"
+            data-ad-slot="9243687244"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script> -->
+    <footer style="margin-top: 60%">
+      <div style="display: flex; flex-direction: row; padding-bottom: 3%; padding-top: 3%;">
+        <div style="width: 40%; text-align: right;">
+          <img src= "{% static '/pictures/collegeplus2.png'%}" style="width: 50px; height: 50px; margin-top: 10px; margin-right: 10%;"></img>
+        </div>
+        <div style="width: 60%; text-align: left;">
+          <p style="margin-top: 4.3%;">CollegePlus™ by Slo-Meg Technologies</p>
+        </div>
+      </div>
+      
+
+      <!-- <p>Contact information: </p>
+      <p>CollegePlus™ Instagram: <a href="https://instagram.com/collegeplusstudents" style="color:#ff6347"> @collegeplusstudents </a></p> 
+       <p> Logan Sage's Instagram:<a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq" style="color:#ff6347"> @logan.sage   </a><p>  </p><a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq"><img src="{% static '/picture/Logan.jpg" style="width: 30px; height:30px;border-radius: 50%;"></img></a></p>
+      <p> Lauren-Megan Botha's Instagram: <a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx" style="color:#ff6347"> @laurenmegan.b   </a><p>  </p><a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx"><img src="{% static '/picture/Lauren.jpg" style="width: 30px; height:30px;border-radius: 50%"></img></a></p>
+      <p> Seun Suberu's Instagram: <a href="https://www.instagram.com/sensei.seun/" style="color:#ff6347"> @sensei.seun   </a><p>  </p><a href="https://www.instagram.com/sensei.seun/"><img src="{% static '/picture/Seun.jpg" style="width: 30px; height:30px;border-radius: 50%; "></img></a></p> -->
+    </footer>
+  </body>
+</html>

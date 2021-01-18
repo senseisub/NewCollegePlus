@@ -1,0 +1,458 @@
+body
+{
+  background-color: #FF0000;
+  margin: 0;
+  padding: 0;
+
+  /* make it look decent enough */
+  background: #232323;
+  color: #cdcdcd;
+  font-family: 'Poppins', sans-serif;
+  -webkit-appearance: none;
+  text-rendering: optimizeLegibility;
+
+}
+
+/* nav{
+    position:fixed;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    width:100%;
+} */
+
+/* span{
+    margin-left: 25%;
+}
+
+#checker{
+    width:200px;
+
+} */
+
+a
+{
+  text-decoration: none;
+  color: #000000;
+
+  transition: color 0.3s ease;
+}
+
+#menuToggle li:hover
+{
+  color: tomato;
+
+}
+
+#menuToggle
+{
+    display: block;
+    position: fixed;
+    top: 50px;
+    left: 50px;
+  
+    z-index: 2;
+  
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+footer {
+  display: block;
+  text-align: center;
+}
+
+#poop
+{
+  display: block;
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  z-index: 1;
+
+}
+
+#poop button {
+    background-color: Transparent;
+    background: #cdcdcd;
+    border-radius: 50px;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 27px;
+
+
+}
+#poop i{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+#menuToggle input
+{
+  display: block;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+
+  cursor: pointer;
+
+  opacity: 0; /* hide this */
+  z-index: 3; /* and place it over the hamburger */
+
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 75px;
+  height: 8px;
+  margin-bottom: 10px;
+  position: relative;
+
+  background: #cdcdcd;
+  border-radius: 3px;
+
+  z-index: 2;
+
+  transform-origin: 8px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/*
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -5px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, 5px);
+
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: fixed;
+  width: 75%;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+
+  height: 100%;
+}
+
+#menu li
+{
+  padding: 30px 0 0 0 ;
+  font-size: 50px;
+  color:black;
+  transition: color 0.3s ease;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+#logo{
+    vertical-align: middle;
+  text-transform: uppercase;
+  position:fixed;
+  background-color: #232323;
+  text-align: center;
+  /* font-size: 85px */
+  justify-content:center;
+  width:100%;
+  padding-top: 0px;
+  margin-top: 0px;
+  position: 0;
+  padding-bottom: 10px;
+  top:0;
+  height: 140px;
+  z-index: 1;
+  border-color: 2px solid black;
+}
+#plus{
+  color:tomato;
+  font-size: 7vw;
+}
+#college{
+  color:lightgrey;
+  font-size: 7vw;
+  border-color: 2px solid black;
+  margin: 10px;
+  font-family: "Segoe UI",Arial,sans-serif; 
+    font-weight: 400;
+
+}
+#question{
+  color: black;
+  text-shadow: 100;
+  background-color: #f2f3f4;
+  text-align:center;
+  height:820px;
+  font-size: 150px;
+  padding-top: 25px;
+  /* background-image #f2f3f4; */
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width:100%;
+
+}
+#question h1{
+    font-size: 75px;
+    /* font-family: 'Russo One', sans-serif; */
+    margin-top: 40px;
+  }
+
+.homepagebuttons {
+  display: flex;
+  width: 100%;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  justify-content: space-evenly;
+  padding-top: 100px;
+  /* padding-left: 185px; */
+  color:white;
+
+}
+
+.mainbutton {
+  /* text-align: left; */
+  font-size: 20pt;
+  background: linear-gradient(to bottom, rgba(255,99,71,1), rgba(240,137,140,1));
+  border-radius: 50px;
+  height: 300px;
+  width: 300px;
+  text-align: center;
+  justify-content: center;
+  column-gap: normal;
+  color: black;
+  border: 10px tomato;
+  border-style: outset;
+  cursor:pointer;
+
+
+
+}
+.homebutt{
+  margin-top: auto;
+  margin-bottom: auto; 
+  cursor: pointer;
+  color: black; 
+  padding-top: 40px; 
+  padding-bottom: 40px; 
+  padding-left: 50px; 
+  padding-right: 50px; 
+  border-radius: 45px;
+  border: 0;
+  font-weight: 700;
+  width: 75%;
+  font-size: 20pt;
+  background-color: tomato;
+ }
+.divvy{
+  display: inline-block;
+}
+#mainbutton3{
+  display: inline-block;
+
+}
+#mainbtn3div{
+  margin-top: -17px;
+
+
+}
+/* 
+#plus{
+  color:tomato;
+  font-size: 7vw;
+}
+#college{
+  color:lightgrey;
+  font-size: 7vw;
+  border-color: 2px solid black;
+  font-family: "Segoe UI",Arial,sans-serif; 
+  font-weight: 400;
+} */
+#statement{
+  text-align: center;
+  font-size:20px;
+  color: white;
+  margin-bottom: 60px;
+}
+#fts{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 45px;
+  color: white;
+}
+#aa{
+font-size: 20px;
+color: white;
+}
+#gsn{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 45px;
+  color:white;
+}
+#gettingstarted{
+  text-align: center;
+  justify-content: center;
+}
+/* #carousel{
+  padding-top: 120px;
+  padding-bottom: 100px; */
+/* * { box-sizing: border-box; } */
+
+body { font-family: sans-serif; }
+
+.scene {
+  /* border: 1px solid #CCC; */
+  margin: 40px 0;
+  position: relative;
+  width: 210px;
+  height: 550px;
+  margin: 40px auto;
+  perspective: 1000px;
+  top: 150px;
+  bottom:150px;
+
+
+}
+
+.carousel {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  transform: translateZ(350px);
+  transform-style: preserve-3d;
+  transition: 2s;
+  top: 30%;
+}
+
+.carousel__cell {
+  position: absolute;
+  width: 190px;
+  height: 120px;
+  left: 10px;
+  top: 10px;
+  line-height: -220px;
+  font-size: 15px;
+  /* font-weight: bold; */
+  color:  black;
+  text-align: center;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  border: 3px outset tomato;
+
+}
+
+
+.carousel__cell:nth-child(9n+1) { background: linear-gradient(to bottom, rgba(0,153,204,1), rgba(0,153,255,1));}
+.carousel__cell:nth-child(9n+2) { background: linear-gradient(to bottom, rgba(0,153,204,1), rgba(0,153,255,1));}
+.carousel__cell:nth-child(9n+3) { background: linear-gradient(to bottom, rgba(0,153,204,1), rgba(0,153,255,1));}
+.carousel__cell:nth-child(9n+4) { background: linear-gradient(to bottom, rgba(0,153,204,1), rgba(0,153,255,1));}
+.carousel__cell:nth-child(9n+5) { background: linear-gradient(to bottom, rgba(0,153,204,1), rgba(0,153,255,1));}
+.carousel__cell:nth-child(9n+6) { background: linear-gradient(to bottom, rgba(0,153,204,1), rgba(0,153,255,1));}
+.carousel__cell:nth-child(9n+7) { background: linear-gradient(to bottom, rgba(0,153,204,1), rgba(0,153,255,1));}
+.carousel__cell:nth-child(9n+8) { background: linear-gradient(to bottom, rgba(0,153,204,1), rgba(0,153,255,1));}
+.carousel__cell:nth-child(9n+0) { background: linear-gradient(to bottom, rgba(0,153,204,1), rgba(0,153,255,1));}
+
+.carousel__cell:nth-child(1) { transform: rotateY(  0deg) translateZ(288px); }
+.carousel__cell:nth-child(2) { transform: rotateY( 40deg) translateZ(288px); }
+.carousel__cell:nth-child(3) { transform: rotateY( 80deg) translateZ(288px); }
+.carousel__cell:nth-child(4) { transform: rotateY(120deg) translateZ(288px); }
+.carousel__cell:nth-child(5) { transform: rotateY(160deg) translateZ(288px); }
+.carousel__cell:nth-child(6) { transform: rotateY(200deg) translateZ(288px); }
+.carousel__cell:nth-child(7) { transform: rotateY(240deg) translateZ(288px); }
+.carousel__cell:nth-child(8) { transform: rotateY(280deg) translateZ(288px); }
+.carousel__cell:nth-child(9) { transform: rotateY(320deg) translateZ(288px); }
+/* #carousel_buttons{
+  text-align: center;
+  height:150px;
+  /* padding-top: 10px; */
+/* } */ 
+
+/* #carousel_buttons button{
+   text-align:center;
+   border-radius: 5px;
+   padding-top: 100px;
+   background-color: Transparent;
+   border-color: Transparent;
+   color: Transparent;
+   style.z-index: 2;
+   height: 200%; */
+/*
+}
+.previous-button{
+  size:50%;
+  left:50%;
+  height:1000px;
+
+}
+.next-button{
+  size:50%;
+  right:50%;
+  height:100%;
+} */

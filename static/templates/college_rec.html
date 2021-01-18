@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- <link rel="icon" href="{% static '/pictures/collegeplus2.png'%}" type="image/x-icon"> -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="address bar icon" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Outline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href = "{% static '/styles/college_rec.css'%}">
+    <link rel="stylesheet" href = "{% static 'styles/headerTemplate.css' %}">
+    </link>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="{% static '/scripts/script.js'%}">
+    </script>
+    <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-2209994521755973",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script src="/node_modules/chart.js/dist/Chart.js"></script>
+    <style>
+      input{
+        border-radius: 9px;
+      }
+      body{
+        background-color: white;
+      }
+    </style>
+    <script src="{% static 'scripts/header.js' %}"></script>   
+    <meta charset="utf-8">
+    <title>College Recommendations</title>
+  </head>
+  <body>
+    <div>
+      <nav role="navigation" id = "navbar">
+        <div id="menuToggle" style = "width : 20vw; min-width: 50px;">
+          <div id = 'box' style = "padding-top: 2vw; margin-left: 2vw; padding-right: 10vw;" onclick="boxClick()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <input type="checkbox" id = "check"/>
+          <ul id="menu" style="font-family: 'Montserrat', sans-serif;">
+            <a href="/home"><li class = "menuElements">Home</li></a><br>
+            <a href="/knowcollege"><li class = "menuElements">CollegePicker</li></a><br>
+            <a href="/knowdegree"><li class = "menuElements">DegreePicker</li></a><br>
+            <a href="/knowdevice"><li class = "menuElements">DevicePicker</li></a><br>
+             <a href="/knowSupplies"><li class = "menuElements">SuppliesPicker</li></a><br>
+          <a href="/buyOrSell"><li class = "menuElements">ProductPicker</li></a><br>            <a href="/resources"><li class = "menuElements"> Resources</li></a><br>
+            <a href="/gpaCalculator"><li class = "menuElements"> GPACalculator</li></a><br>
+            <a href="/about"><li class = "menuElements">About CollegePlus™</li></a><br>
+            <a href="/logout"><li class = "menuElements">Log out</li></a><br>
+          </ul>
+  
+        </div>
+        <div id="logo" onclick="logoClick('{{city}}')">
+          <h1 class = 'bigTitle'>
+            <m>College</m><m style ="color: tomato">Plus</m>
+          </h1>
+          <!-- <img src="{% static 'pictures/Lyfe_Here_header.png' %}" class="logo-image center d-inline-block align-middle" style = "min-width: 200px;" alt="Lyfe Here Logo" > -->
+        </div>
+        <div style = "width : 20vw;">
+          <div id="poop" style = "text-align: right;">
+                          <i class="material-icons" id = "personIcon" onclick="goToSave()">account_circle</i> 
+  
+          </div>
+        </div>
+      </nav>
+    
+      <div style="display: none;">
+        <p id = "dummy">dummy</p> 
+        <p id = "blackPop">{{blackPop}}</p>
+        <p id = "whitePop">{{whitePop}}</p>
+        <p id = "asianPop">{{asianPop}}</p>
+        <p id = "hispanicPop">{{hispanicPop}}</p>
+        <p id = "colleges">{{colleges}}</p>
+        <p id = "collegeLinks">{{collegeLinks}}</p>
+        <p id = "collegeTemperature">{{collegeTemperature}}</p>
+        <p id = "collegeWeather">{{collegeWeather}}</p>
+        <p id = "collegeACTS">{{collegeACTS}}</p>
+        <p id = "collegeSATMath">{{collegeSATMath}}</p>
+        <p id = "collegeSATReading">{{collegeSATReading}}</p>
+        <p id = "collegePrices">{{collegePrices}}</p>
+        <p id = "collegeNiche">{{collegeNiche}}</p>
+        <p id = "collegePriceCalculators">{{collegePriceCalculators}}</p>
+        <p id = "collegeStates">{{collegeStates}}</p>
+      </div>
+      <div id="recs">
+        <h1 style="font-size: 32pt; color:#000000; padding-top: 3%; padding-bottom: 3%; background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('../pictures/Oxford-Sample.jpg'); background-repeat: no-repeat; background-size: 75vw 20vh; width: 75vw; margin-right: auto; margin-left: auto;">
+          The Colleges you got paired with are:
+        </h1>
+        </div>
+        <div style = "text-align: center;">
+        <p id="majors">
+          
+          
+        </p>
+        <!-- <input type="button" id = "morecolleges" value="View all the colleges you matched with" style=" border-radius: 5px; height: 30px; color: white; font-weight: 100;">
+        </input> -->
+        <p id="morecollegestext" style="display: none; font-size: 18pt; color: tomato;">
+
+            {{morecolleges}}
+        </p>
+      </div>
+      <div id="bttmbtns" style="display: flex; flex-direction: row; margin-top: 5%; margin-bottom: 5vh;">
+        <div style = "width: 27%">
+
+        </div>
+        <div style = "width: 40%">
+          <form action="/login_page" method="get" style="text-align: center;">
+            <input class= 'recbuttons' type="submit" id="recsnext" value = "View Profile"></input>
+          </form>
+        </div>
+        <div style = "width: 6%">
+
+        </div>
+        <div style = "width: 40%">
+          <form action="/knowdevice" method="get" style="text-align: center;">
+            <input class= 'recbuttons' type="submit" id="gotodegrec"  value = "More College Resources"></input>
+          </form>
+        </div>
+        <div style = "width: 27%">
+
+        </div>
+      </div>
+      <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      
+    </div>
+    <footer >
+      <div>
+      <!-- Display Ads -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-2209994521755973"
+                data-ad-slot="3051770603"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script> 
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+      <div style="display: flex; flex-direction: row; padding-bottom: 0%; padding-top: 3%;">
+        <div style="width: 40%; text-align: right;">
+          <img src= "{% static '/pictures/collegeplus2.png'%}" style="width: 50px; height: 50px; margin-top: 10px; margin-right: 10%;"></img>
+        </div>
+        <div style="width: 60%; text-align: left;">
+          <p style="margin-top: 3.2%;">CollegePlus™ by Slo-Meg Technologies</p>
+        </div>
+      </div>
+
+      
+
+      <!-- <p>Contact information: </p>
+      <p>CollegePlus™ Instagram: <a href="https://instagram.com/collegeplusstudents" style="color:#ff6347"> @collegeplusstudents </a></p> 
+       <p> Logan Sage's Instagram:<a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq" style="color:#ff6347"> @logan.sage   </a><p>  </p><a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq"><img src="{% static '/picture/Logan.jpg" style="width: 30px; height:30px;border-radius: 50%;"></img></a></p>
+      <p> Lauren-Megan Botha's Instagram: <a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx" style="color:#ff6347"> @laurenmegan.b   </a><p>  </p><a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx"><img src="{% static '/picture/Lauren.jpg" style="width: 30px; height:30px;border-radius: 50%"></img></a></p>
+      <p> Seun Suberu's Instagram: <a href="https://www.instagram.com/sensei.seun/" style="color:#ff6347"> @sensei.seun   </a><p>  </p><a href="https://www.instagram.com/sensei.seun/"><img src="{% static '/picture/Seun.jpg" style="width: 30px; height:30px;border-radius: 50%; "></img></a></p> -->
+    </footer>
+  </body>
+</html>

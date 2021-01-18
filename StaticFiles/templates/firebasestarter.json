@@ -1,0 +1,33 @@
+{
+	"beginner" : {"Words" :[
+			 "Hello",
+			"Goodbye",
+			"How are you"
+			],
+				"Sentences" : [
+
+				]
+
+			},
+	"intermediate" : [
+			{
+				"Words" : [
+
+				],
+
+				"Sentences" : [
+
+				]
+			}
+
+	],
+
+	"hard" : {"Words" : [
+
+				],
+				"Sentences" : [
+					
+				]
+			}
+	}
+}

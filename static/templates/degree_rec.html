@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="address bar icon" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Outline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href = "{% static '/styles/degree_rec.css'%}">
+    <link rel="stylesheet" href = "{% static 'styles/headerTemplate.css' %}">
+    </link>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <script src="{% static '/scripts/degree.js'%}"></script>
+    <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-2209994521755973",
+              enable_page_level_ads: true
+        });
+    </script>
+    </script>
+    <script>
+      function stripExtras(str){
+        if(str.length == 0){
+          return [];
+        }
+        let tempString = str.split(",");
+
+        // for(let i = 0 ; i < tempString.length; i++){
+        //   tempString[i] = tempString[i].substring(1, tempString[i].length-1);
+        // }
+        return tempString;
+      }
+      function onLoad(){
+        let majors = stripExtras($("#majors").text());
+        let majorUrls = stripExtras($("#majorLinks").text());
+        let majorDescriptions = $("#majorDescriptions").text().split("^");
+        
+          for(var i = 0; i < majors.length; i++){
+
+              $("#recs").append(renderHTML(majors[i], majorUrls[i], majorDescriptions[i], (i+1)));
+          }
+          $("#logout").click(function(){
+            document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.location.href = "/logout";
+          });
+          $("#logout").hover(function(){
+            $("#logout").css("cursor", "pointer");
+          });
+      }
+      let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      let sizeOfFont = isMobile?"1.2vh" : "12pt";
+      function renderHTML(major, url, description, num){
+        let tempstring = "<div style = 'text-align: center;'>"+
+          "<p style='margin-bottom: 10px; color: #cdcdcd; '>"+
+            num + ".  <m id='firstmajor' class = 'results'>"+ major +"</m><br><br>" + 
+          "</p>" +
+          "<form action='' id='engineeringbutton' style='display: none;' action='/engineeringSubQuestions'>"+
+            "<input type='submit' value='But which type of Engineering?' id = 'buttonforengineers'/>"+
+          "</form>"+
+          "<p style= 'font-size: 18pt; max-width: 80%; margin-left: auto; margin-right: auto; line-height: 28pt; color : #cdcdcd'>"+
+            description+
+          "</p>"+
+          "<button onclick='window.location.href=\""+url+"\"' class = 'urlButton' style = 'font-size:"+sizeOfFont+"'>"+
+            "Learn more about this major->"+
+          "</button>"+
+        "</div>" ;
+        return tempstring;
+      }
+      window.onload = onLoad;
+    </script>
+    <script src="{% static 'scripts/header.js' %}"></script>   
+    <script src="{% static 'scripts/results.js' %}"></script>
+    <meta charset="utf-8">
+    <title>Degree Recommendations</title>
+  </head>
+  <body>
+    <nav role="navigation">
+      <nav role="navigation" id = "navbar">
+        <div id="menuToggle" style = "width : 20vw; min-width: 50px;">
+          <div id = 'box' style = "padding-top: 2vw; margin-left: 2vw; padding-right: 10vw;" onclick="boxClick()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <input type="checkbox" id = "check"/>
+          <ul id="menu" style="font-family: 'Montserrat', sans-serif;">
+            <a href="/home"><li class = "menuElements">Home</li></a><br>
+            <a href="/knowcollege"><li class = "menuElements">CollegePicker</li></a><br>
+            <a href="/knowdegree"><li class = "menuElements">DegreePicker</li></a><br>
+            <a href="/knowdevice"><li class = "menuElements">DevicePicker</li></a><br>
+             <a href="/knowSupplies"><li class = "menuElements">SuppliesPicker</li></a><br>
+          <a href="/buyOrSell"><li class = "menuElements">ProductPicker</li></a><br>            <a href="/resources"><li class = "menuElements"> Resources</li></a><br>
+            <a href="/gpaCalculator"><li class = "menuElements"> GPACalculator</li></a><br>
+            <a href="/about"><li class = "menuElements">About CollegePlus™</li></a><br>
+            <a href="/logout"><li class = "menuElements">Log out</li></a><br>
+          </ul>
+  
+        </div>
+        <div id="logo" onclick="logoClick('{{city}}')">
+          <h1 class = 'bigTitle'>
+            <m>College</m><m style ="color: tomato">Plus</m>
+          </h1>
+          <!-- <img src="{% static 'pictures/Lyfe_Here_header.png' %}" class="logo-image center d-inline-block align-middle" style = "min-width: 200px;" alt="Lyfe Here Logo" > -->
+        </div>
+        <div style = "width : 20vw;">
+          <div id="poop" style = "text-align: right;">
+                          <i class="material-icons" id = "personIcon" onclick="goToSave()">account_circle</i> 
+  
+          </div>
+        </div>
+      </nav>
+      <div style = "display: none;">
+        <p id = "majors">{{majors}}</p>
+        <p id = "majorDescriptions">{{majorDescriptions}}</p>
+        <p id = "majorLinks">{{majorLinks}}</p>
+      </div>
+      <div id = "recs">
+        <div>
+          <h1 class = 'header'>
+            The Degrees you got paired with are:
+          </h1>
+        </div>
+        
+      </div>
+      <div id="bttmbtns" style="text-align: center; margin-top: 10%; display: flex; flex-direction: row; margin-bottom: 10%;">
+        <div style = "width: 25%">
+
+        </div>
+        <div style = "width: 20%">
+          <form action="/login_page" method="get">
+            <input type="submit" class = 'recbuttons' id="recsnext" value = "View Profile"></input>
+          </form>
+        </div>
+        <div style = "width : 10%">
+
+        </div>
+        <div style = "width: 20%">
+          <form action="/knowcollege" method="get">
+            <input type="submit" class = 'recbuttons' id="gotodegrec"  value = "College match"></input>
+          </form>
+        </div>
+        <div style = "width: 25%">
+
+        </div>
+      </div>
+      <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- Display Ads -->
+
+    </nav>
+    <footer >
+      <div>
+        <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-2209994521755973"
+        data-ad-slot="3051770603"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <div style="display: flex; flex-direction: row; padding-bottom: 0%; padding-top: 3%;">
+        <div style="width: 40%; text-align: right;">
+          <img src= "{% static '/pictures/collegeplus2.png'%}" style="width: 50px; height: 50px; margin-top: 10px; margin-right: 10%;"></img>
+        </div>
+        <div style="width: 60%; text-align: left;">
+          <p style="margin-top: 3.2%;">CollegePlus™ by Slo-Meg Technologies</p>
+        </div>
+      </div>
+
+      
+
+      <!-- <p>Contact information: </p>
+      <p>CollegePlus™ Instagram: <a href="https://instagram.com/collegeplusstudents" style="color:#ff6347"> @collegeplusstudents </a></p> 
+       <p> Logan Sage's Instagram:<a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq" style="color:#ff6347"> @logan.sage   </a><p>  </p><a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq"><img src="{% static '/picture/Logan.jpg" style="width: 30px; height:30px;border-radius: 50%;"></img></a></p>
+      <p> Lauren-Megan Botha's Instagram: <a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx" style="color:#ff6347"> @laurenmegan.b   </a><p>  </p><a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx"><img src="{% static '/picture/Lauren.jpg" style="width: 30px; height:30px;border-radius: 50%"></img></a></p>
+      <p> Seun Suberu's Instagram: <a href="https://www.instagram.com/sensei.seun/" style="color:#ff6347"> @sensei.seun   </a><p>  </p><a href="https://www.instagram.com/sensei.seun/"><img src="{% static '/picture/Seun.jpg" style="width: 30px; height:30px;border-radius: 50%; "></img></a></p> -->
+    </footer>
+  </body>
+</html>

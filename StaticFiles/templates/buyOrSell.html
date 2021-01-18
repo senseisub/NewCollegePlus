@@ -1,0 +1,311 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="address bar icon" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/pictures/collegeplus2.png'%}"/>
+   <!-- <link rel="manifest" href="/site.webmanifest"> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Outline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static '/pictures/collegeplus2.png'%}">
+    <link rel="stylesheet" href = "{% static '/styles/knowdegree.css'%}">
+    <link rel="stylesheet" href = "{% static 'styles/headerTemplate.css' %}">
+
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-2209994521755973",
+              enable_page_level_ads: true
+        });
+    </script>
+    <script src="{% static 'scripts/header.js' %}"></script>
+    <script src="{% static 'scripts/knowPages.js' %}"></script>
+    <script>
+        let collegeJSON = "";
+        let collegeListGlobal = new Map();
+        function handleColleges(response){
+          collegeJSON = response;
+        }
+  
+        let binarySearch = (arr, x, end) => {
+          let low = 0;
+          let high = arr.length - 1;
+          let mid = 0;
+          while (low <= high){
+            mid = (high + low); // 2
+    
+            // Check if x is present at mid 
+            if (arr[mid]["name"].substring(0, end) < x)
+                low = mid + 1;
+  
+            // If x is greater, ignore left half 
+            else if (arr[mid]["name"].substring(0, end) > x) 
+                high = mid - 1
+  
+            // If x is smaller, ignore right half 
+            else 
+                return mid;
+          } 
+          // If we reach here, then the element was not present 
+          return -1
+        }
+  
+        let findWord = (str, arr) => {
+          let index = binarySearch(arr, str, str.length);
+          console.log("mid : " + index);
+          let currentList = [];
+          if(index != -1)
+                  while (index > -1 && arr[index]["name"].substring(0, str.length) == str){
+                          index--;
+                  }
+                  if(index != (arr.length-1))
+                          index++
+                  for(let i = index; i < arr.length; i++){
+                    if(arr[i]["name"].substring(0, str.length) != str){
+                      break;
+                    }
+                    currentList.push(arr[i])
+                                  
+                  }
+          return currentList;
+        }
+         $(document).ready(() => {
+          collegeJSON = JSON.parse($("#collegesJSON").text())
+  
+          $("#findCollege").keyup(() => {
+            findCollege();
+          });
+          $("#findCollege").focus(() => {
+            $("#myUL").css({"display" : "block"});
+          });
+
+
+          // $("#formDiv").focusout(() => {
+          //   $("#myUL").css({"display" : "none"});
+          // });
+         });
+  
+         let stripSymbols = (s) => {
+            s = s.replace(/\W/g, '');
+            return s;
+          }
+  
+        let findCollege = () => {
+              let collegeList = findWord($("#findCollege").val(), collegeJSON["main"]);
+              $("#myUL").empty();
+              collegeListGlobal = new Map();
+              console.log("FIND COLLEGE")
+              for(let i = 0; i < 5; i++){
+                let idString = stripSymbols( collegeList[i]["name"] + collegeList[i]["state"] );
+                let tempString = "<li><a id = '" + idString +"'>" + collegeList[i]["name"] + " " + collegeList[i]["state"] + "</a></li>";
+                $("#myUL").append(tempString);
+                collegeListGlobal.set(idString, [collegeList[i]["name"], collegeList[i]["state"]]);
+                $("#" + idString).click(() => {
+                  $("#listOfColleges").text(collegeListGlobal.get(idString)[0] + ", " + collegeListGlobal.get(idString)[1]);
+                  $("#chosen").val(stripSymbols(collegeListGlobal.get(idString)[0]+ collegeListGlobal.get(idString)[1]));
+                  if($("#chosen").val()){ 
+                        $("#yesbtn").prop({"disabled" : false});
+                        $("#nobtn").prop({"disabled" : false});
+                    }
+                    else{
+                        $("#yesbtn").prop({"disabled" : true});
+                        $("#nobtn").prop({"disabled" : true});
+                    }
+                  // for(i in collegeListGlobal){
+                  //   if(stripSymbols( collegeListGlobal[i]["name"] + collegeListGlobal[i]["state"] ))
+                  // }
+                });
+              }
+        }
+
+        let yesBtn = () => {
+            let text = stripSymbols($("#listOfColleges").text());
+            document.location.href = "buy/"+text;
+        }
+
+        let noBtn = () => {
+            let text = stripSymbols($("#listOfColleges").text());
+            document.location.href = "sell/"+text;
+        }
+     
+      </script>
+      <style>
+  
+        .form__label {
+          font-family: 'Roboto', sans-serif;
+          font-size: 1.2rem;
+          margin-left: 2rem;
+          margin-top: 0.7rem;
+          display: block;
+          transition: all 0.3s;
+          transform: translateY(0rem);
+        }
+  
+        .form__input {
+          font-family: 'Roboto', sans-serif;
+          color: #333;
+          font-size: 1.2rem;
+          margin: 0 auto;
+          margin-top: 5%;
+          padding: 1.5rem 2rem;
+          border-radius: 0.8rem;
+          background-color: #EFEFEF;
+          border: none;
+          width: 50%;
+          display: block;
+          border-bottom: 0.3rem solid transparent;
+          transition: all 0.3s;
+        }
+  
+        .form__input:placeholder-shown + .form__label {
+          opacity: 0;
+          visibility: hidden;
+          -webkit-transform: translateY(-4rem);
+          transform: translateY(-4rem);
+        }
+        #myUL {
+          /* Remove default list styling */
+          list-style-type: none;
+          padding: 0;
+          margin: 0 auto;
+          width: 54%;
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+        }
+  
+        #myUL li a {
+          border: 1px solid #ddd; /* Add a border to all links */
+          margin-top: -1px; /* Prevent double borders */
+          background-color: #EFEFEF; /* Grey background color */
+          padding: 12px; /* Add some padding */
+          text-decoration: none; /* Remove default text underline */
+          font-size: 18px; /* Increase the font-size */
+          color: black; /* Add a black text color */
+          display: block; /* Make it into a block element to fill the whole list */
+        }
+  
+        #myUL li a:hover:not(.header) {
+          background-color: #eee; /* Add a hover effect to all links, except for headers */
+        }
+  
+        li{
+            cursor:pointer;
+        }
+      </style>
+    <title>ProductPicker</title>
+  </head>
+  <body>
+    <nav role="navigation" id = "navbar">
+      <div id="menuToggle" style = "width : 20vw; min-width: 50px;">
+        <div id = 'box' style = "padding-top: 2vw; margin-left: 2vw; padding-right: 10vw;" onclick="boxClick()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <input type="checkbox" id = "check"/>
+        <ul id="menu" style="font-family: 'Montserrat', sans-serif;">
+          <a href="/home"><li class = "menuElements">Home</li></a><br>
+          <a href="/knowcollege"><li class = "menuElements">CollegePicker</li></a><br>
+          <a href="/knowdegree"><li class = "menuElements">DegreePicker</li></a><br>
+          <a href="/knowdevice"><li class = "menuElements">DevicePicker</li></a><br>
+           <a href="/knowSupplies"><li class = "menuElements">SuppliesPicker</li></a><br>
+          <a href="/buyOrSell"><li class = "menuElements">ProductPicker</li></a><br>          <a href="/buyOrSell"><li class = "menuElements">ProductPicker</li></a><br>
+          <a href="/resources"><li class = "menuElements"> Resources</li></a><br>
+          <a href="/gpaCalculator"><li class = "menuElements"> GPACalculator</li></a><br>
+          <a href="/about"><li class = "menuElements">About CollegePlus™</li></a><br>
+          <a href="/logout"><li class = "menuElements">Log out</li></a><br>
+        </ul>
+
+      </div>
+      <div id="logo" onclick="logoClick('{{city}}')">
+        <h1 class = 'bigTitle'>
+          <m>College</m><m style ="color: tomato">Plus</m>
+        </h1>
+        <!-- <img src="{% static 'pictures/Lyfe_Here_header.png' %}" class="logo-image center d-inline-block align-middle" style = "min-width: 200px;" alt="Lyfe Here Logo" > -->
+      </div>
+      <div style = "width : 20vw;">
+        <div id="poop" style = "text-align: right;">
+          <i class="material-icons" id = "personIcon" onclick="goToSave()">account_circle</i> 
+
+        </div>
+      </div>
+    </nav>
+      <div id="knowdegree" style="margin-bottom: 10%; max-width: 75%; margin-left: auto; margin-right: auto; margin-top : 10vh;">
+        <h1 style = "font-size: 14pt; line-height: 4vh;"> Product Picker is a CollegePlus feature for students to sell the things that they own to other students on their campus, or to purchase things other students are selling. A buyer can message the seller and schedule a place for them to complete the transaction. </h1>
+        <h1 id="question" style = "color: #cdcdcd">  What College Do You Want to Buy or Sell at?  </h1>
+            <div style = "display: none;">
+                <h6 id = "collegesJSON">
+                {{colleges}}
+                </h6>
+                <input type = "text" id = "chosen" />
+            </div>
+          <div>
+            <h6 id  = "listOfColleges" style = "font-size: 20pt;">
+    
+            </h6>
+          </div>
+        <div id = "formDiv">
+            <input type="text" class="form__input" id="findCollege" placeholder="search for a college..." required=""  />
+            <!-- <label for="name" class="form__label">USA</label> -->
+            <ul id="myUL" style="display: none;">
+    
+    
+    
+    
+            </ul>
+          </div>
+      <!-- <div id="btns"> -->
+        <a ><button id="yesbtn" type="button" name="yes" onclick = "yesBtn()" disabled> Buy </button></a>
+        <a ><button id="nobtn"  type="button" name="no" onclick = "noBtn()" disabled> Sell </button></a>
+        
+      </div>
+      <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- </nav> -->
+    <footer >
+      <div>
+        <ins class="adsbygoogle"
+        style="display:block; text-align:center;"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-2209994521755973"
+        data-ad-slot="9243687244"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <div style="display: flex; flex-direction: row; padding-bottom: 0%; padding-top: 3%;">
+        <div style="width: 40%; text-align: right;">
+          <img src= "{% static '/pictures/collegeplus2.png'%}" style="width: 50px; height: 50px; margin-top: 10px; margin-right: 10%;"></img>
+        </div>
+        <div style="width: 60%; text-align: left;">
+          <p style="margin-top: 3.2%;">CollegePlus™ by Slo-Meg Technologies</p>
+        </div>
+      </div>
+
+      
+
+      <!-- <p>Contact information: </p>
+      <p>CollegePlus™ Instagram: <a href="https://instagram.com/collegeplusstudents" style="color:#ff6347"> @collegeplusstudents </a></p> 
+       <p> Logan Sage's Instagram:<a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq" style="color:#ff6347"> @logan.sage   </a><p>  </p><a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq"><img src="{% static '/picture/Logan.jpg" style="width: 30px; height:30px;border-radius: 50%;"></img></a></p>
+      <p> Lauren-Megan Botha's Instagram: <a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx" style="color:#ff6347"> @laurenmegan.b   </a><p>  </p><a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx"><img src="{% static '/picture/Lauren.jpg" style="width: 30px; height:30px;border-radius: 50%"></img></a></p>
+      <p> Seun Suberu's Instagram: <a href="https://www.instagram.com/sensei.seun/" style="color:#ff6347"> @sensei.seun   </a><p>  </p><a href="https://www.instagram.com/sensei.seun/"><img src="{% static '/picture/Seun.jpg" style="width: 30px; height:30px;border-radius: 50%; "></img></a></p> -->
+    </footer>
+  </body>
+</html>

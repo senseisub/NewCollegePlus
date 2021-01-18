@@ -1,0 +1,1033 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="address bar icon" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Outline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static '/pictures/collegeplus2.png'%}">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href = "{% static '/styles/mknowdegree.css'%}">
+    </link>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <script src="{% static '/scripts/gpaCalculator.js'%}">
+    </script>
+    <style>
+        h3{
+            color: black;
+        }
+        .drop{
+            -webkit-appearance: none;
+        }
+        body{
+            -webkit-appearance: none;
+        }
+        
+    </style>
+    <meta charset="utf-8">
+    <title>GPACalculator</title>
+    <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-2209994521755973",
+              enable_page_level_ads: true
+        });
+    </script>
+  </head>
+  <body>
+    <nav role="navigation">
+      <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="menu">
+          <a href="/mobile/home"><li>Home</li></a><br>
+          <a href="/mobile/knowcollege"><li>CollegePicker</li></a><br>
+          <a href="/mobile/knowdegree"><li>DegreePicker</li></a><br>
+          <a href="/mobile/knowdevice"><li>Device Picker</li></a><br>
+          <a href="/mobile/resources"><li> Resources</li></a><br>
+          <a href="/mobile/gpaCalculator"><li> GPACalculator</li></a><br>
+          <a href="/mobile/about"><li>About CollegePlus™</li></a><br>
+          <a href="/mobile/logout"><li>Log out</li></a><br>
+        </ul>
+      </div>
+      <div id="logo" style="text-align: center; justify-content: center;">
+        <h1 style="width:45%; margin: auto; cursor: pointer; height: 100%; padding-top: 2%; margin-top: .8vh;" id="college">College<m id="plus"> + </m></h1>
+        </div>
+        <div id="poop">
+          <form action="/mobile/login_page" method="get">
+            <p style="margin-top: -10px; font-size: 3vw; height: 100%;"><button type="submit" name="button" style="vertical-align: middle; height: 60px;color: {{iconcolor}}; max-width: 70px;"><i style="font-size: 40pt;" class="material-icons">account_circle</i></button></p>
+          </form>
+        </div>
+      </div> 
+    </nav>
+    <!-- </nav> -->
+    <div style="padding-top: 15%; text-align: center; margin-bottom: 5%; color: black">
+        <h1 id="question" style = " font-weight: 500;">
+            GPACalculator
+        </h1>
+    </div>
+    <div style="text-align: center;">
+        <h3 style="font-size: 24pt;  font-weight: 500;">
+            My School Uses GPAs that are:
+        </h3>
+    </div>
+    <div style=" display: flex; flex-direction: row;">
+        <div style="margin-bottom: 5%; width: 50%; text-align: right;">
+            <button id="weighted" style="border: 5px solid green; background-color: white; font-size: 2.7vw; width: auto; border-radius: 50px; padding: 16px; width: 40%;"> Weighted </button>
+        </div>
+        <div style="width: 50%; text-align: left;">
+            <button id="unweighted" style="border: 5px solid gray; background-color: white; font-size: 2.7vw; width: auto; border-radius: 50px; padding: 16px; width: 40%;"> Unweighted</button>
+        </div>
+           
+    </div>
+    <div style="display: flex; flex-direction: column; border-bottom: 1px solid black; width: 90%; margin-left: auto; margin-right: auto; padding-bottom: 5%; ">
+        <div style="display: flex; flex-direction: row;">
+            <div style="width: 50%; text-align: center;">
+                <div style="margin-bottom: 5%;">
+                    <h3 class="cfq"> What class is this for? </h3>
+                    <input type="text" class="form__input"  placeholder="Ex: Math" required=""  />
+                </div>
+                
+            </div>
+            <div style="width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Grade </h3>
+                </div>
+                <div>
+                    <select class="drop" name="grades" id="grades" style="width: 40%;">
+                        <option value = "" selected>
+
+                        </option>
+                        <option value="A+">
+                            A+
+                        </option>
+                        <option value="A">
+                            A
+                        </option>
+                        <option value="A-">
+                            A-
+                        </option>
+                        <option value="B+">
+                            B+
+                        </option>
+                        <option value="B">
+                            B
+                        </option>
+                        <option value="B-">
+                            B-
+                        </option>
+                        <option value="C+">
+                            C+
+                        </option>
+                        <option value="C">
+                            C
+                        </option>
+                        <option value="C-">
+                            C-
+                        </option>
+                        <option value="D+">
+                            D+
+                        </option>
+                        <option value="D">
+                            D
+                        </option>
+                        <option value="D-">
+                            D-
+                        </option>
+                        <option value="F">
+                            F
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            <div style="width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Credits </h3>
+                </div>
+                <div>
+                    <select class="drop" name="credits" id="credits" style="width: 40%;">
+                        <option value="4">
+                            4
+                        </option>
+                        <option value="3">
+                            3
+                        </option>
+                        <option value="2" selected>
+                            2
+                        </option>
+                        <option value="1">
+                            1
+                        </option>
+                    </select>
+                </div>
+            </div style="width: 50%;">
+            <div style="display: flex; flex-direction: column; width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Class Type </h3>
+                </div>
+                <div>
+                    <select class="drop" name="type" id="type" style="width: 40%; height: auto;">
+                        <option value="AP">
+                            AP
+                        </option>
+                        <option value="IB">
+                            IB
+                        </option>
+                        <option value="Dual-Credit">
+                            Dual-Credit
+                        </option>
+                        <option value="Honors">
+                            Honors
+                        </option>
+                        <option value="Regular" selected>
+                            Regular
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column;  border-bottom: 1px solid black; width: 90%; margin-left: auto; margin-right: auto; padding-bottom: 5%; padding-top: 3%;">
+        <div style="display: flex; flex-direction: row;">
+            <div style="width: 50%; text-align: center;">
+                <div style="margin-bottom: 5%;">
+                    <h3 class="cfq"> What class is this for? </h3>
+                    <input type="text" class="form__input"  placeholder="Ex: Math" required=""  />
+                </div>
+                
+            </div>
+            <div style="width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Grade </h3>
+                </div>
+                <div>
+                    <select class="drop" name="grades2" id="grades2" style="width: 40%;">
+                        <option value = "" selected>
+
+                        </option>
+                        <option value="A+">
+                            A+
+                        </option>
+                        <option value="A">
+                            A
+                        </option>
+                        <option value="A-">
+                            A-
+                        </option>
+                        <option value="B+">
+                            B+
+                        </option>
+                        <option value="B">
+                            B
+                        </option>
+                        <option value="B-">
+                            B-
+                        </option>
+                        <option value="C+">
+                            C+
+                        </option>
+                        <option value="C">
+                            C
+                        </option>
+                        <option value="C-">
+                            C-
+                        </option>
+                        <option value="D+">
+                            D+
+                        </option>
+                        <option value="D">
+                            D
+                        </option>
+                        <option value="D-">
+                            D-
+                        </option>
+                        <option value="F">
+                            F
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            <div style="width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Credits </h3>
+                </div>
+                <div>
+                    <select class="drop" name="credits2" id="credits2" style="width: 40%;">
+                        <option value="4">
+                            4
+                        </option>
+                        <option value="3">
+                            3
+                        </option>
+                        <option value="2" selected>
+                            2
+                        </option>
+                        <option value="1">
+                            1
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column; width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Class Type </h3>
+                </div>
+                <div>
+                    <select class="drop" name="type2" id="type2" style="width: 40%;  height: auto;">
+                        <option value="AP">
+                            AP
+                        </option>
+                        <option value="IB">
+                            IB
+                        </option>
+                        <option value="Dual-Credit">
+                            Dual-Credit
+                        </option>
+                        <option value="Honors">
+                            Honors
+                        </option>
+                        <option value="Regular" selected>
+                            Regular
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; border-bottom: 1px solid black; width: 90%; margin-left: auto; margin-right: auto; padding-bottom: 5%; padding-top: 3%;">
+        <div style="display: flex; flex-direction: row;">
+            <div style="width: 50%; text-align: center;">
+                <div style="margin-bottom: 5%;">
+                    <h3 class="cfq"> What class is this for? </h3>
+                    <input type="text" class="form__input" placeholder="Ex: Math" required=""  />
+                </div>
+                
+            </div>
+            <div style="width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Grade </h3>
+                </div>
+                <div>
+                    <select class="drop" name="grades3" id="grades3" style="width: 40%;">
+                        <option value = "" selected>
+
+                        </option>
+                        <option value="A+">
+                            A+
+                        </option>
+                        <option value="A">
+                            A
+                        </option>
+                        <option value="A-">
+                            A-
+                        </option>
+                        <option value="B+">
+                            B+
+                        </option>
+                        <option value="B">
+                            B
+                        </option>
+                        <option value="B-">
+                            B-
+                        </option>
+                        <option value="C+">
+                            C+
+                        </option>
+                        <option value="C">
+                            C
+                        </option>
+                        <option value="C-">
+                            C-
+                        </option>
+                        <option value="D+">
+                            D+
+                        </option>
+                        <option value="D">
+                            D
+                        </option>
+                        <option value="D-">
+                            D-
+                        </option>
+                        <option value="F">
+                            F
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            <div style="width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Credits </h3>
+                </div>
+                <div>
+                    <select class="drop" name="credits3" id="credits3" style="width: 40%;">
+                        <option value="4">
+                            4
+                        </option>
+                        <option value="3">
+                            3
+                        </option>
+                        <option value="2" selected>
+                            2
+                        </option>
+                        <option value="1">
+                            1
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column; width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Class Type </h3>
+                </div>
+                <div>
+                    <select class="drop" name="type3" id="type3" style="width: 40%; height: auto;">
+                        <option value="AP">
+                            AP
+                        </option>
+                        <option value="IB">
+                            IB
+                        </option>
+                        <option value="Dual-Credit">
+                            Dual-Credit
+                        </option>
+                        <option value="Honors">
+                            Honors
+                        </option>
+                        <option value="Regular" selected>
+                            Regular
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; border-bottom: 1px solid black; width: 90%; margin-left: auto; margin-right: auto; padding-bottom: 5%; padding-top: 3%;">
+        <div style="display: flex; flex-direction: row;">
+            <div style="width: 50%; text-align: center;">
+                <div style="margin-bottom: 5%;">
+                    <h3 class="cfq"> What class is this for? </h3>
+                    <input type="text" class="form__input" placeholder="Ex: Math" required=""  />
+                </div>
+                
+            </div>
+            <div style="width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Grade </h3>
+                </div>
+                <div>
+                    <select class="drop" name="grades4" id="grades4" style="width: 40%;">
+                        <option value = "" selected>
+
+                        </option>
+                        <option value="A+">
+                            A+
+                        </option>
+                        <option value="A">
+                            A
+                        </option>
+                        <option value="A-">
+                            A-
+                        </option>
+                        <option value="B+">
+                            B+
+                        </option>
+                        <option value="B">
+                            B
+                        </option>
+                        <option value="B-">
+                            B-
+                        </option>
+                        <option value="C+">
+                            C+
+                        </option>
+                        <option value="C">
+                            C
+                        </option>
+                        <option value="C-">
+                            C-
+                        </option>
+                        <option value="D+">
+                            D+
+                        </option>
+                        <option value="D">
+                            D
+                        </option>
+                        <option value="D-">
+                            D-
+                        </option>
+                        <option value="F">
+                            F
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            <div style="width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Credits </h3>
+                </div>
+                <div>
+                    <select class="drop" name="credits4" id="credits4" style="width: 40%;">
+                        <option value="4">
+                            4
+                        </option>
+                        <option value="3">
+                            3
+                        </option>
+                        <option value="2" selected>
+                            2
+                        </option>
+                        <option value="1">
+                            1
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column; width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Class Type </h3>
+                </div>
+                <div>
+                    <select class="drop" name="type4" id="type4" style="width: 40%; height: auto;">
+                        <option value="AP">
+                            AP
+                        </option>
+                        <option value="IB">
+                            IB
+                        </option>
+                        <option value="Dual-Credit">
+                            Dual-Credit
+                        </option>
+                        <option value="Honors">
+                            Honors
+                        </option>
+                        <option value="Regular" selected>
+                            Regular
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; border-bottom: 1px solid black; width: 90%; margin-left: auto; margin-right: auto; padding-bottom: 5%; padding-top: 3%;">
+        <div style="display: flex; flex-direction: row;">
+            <div style="width: 50%; text-align: center;">
+                <div style="margin-bottom: 5%;">
+                    <h3 class="cfq"> What class is this for? </h3>
+                    <input type="text" class="form__input" placeholder="Ex: Math" required=""  />
+                </div>
+                
+            </div>
+            <div style="width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Grade </h3>
+                </div>
+                <div>
+                    <select class="drop" name="grades5" id="grades5" style="width: 40%;">
+                        <option value = "" selected>
+
+                        </option>
+                        <option value="A+">
+                            A+
+                        </option>
+                        <option value="A">
+                            A
+                        </option>
+                        <option value="A-">
+                            A-
+                        </option>
+                        <option value="B+">
+                            B+
+                        </option>
+                        <option value="B">
+                            B
+                        </option>
+                        <option value="B-">
+                            B-
+                        </option>
+                        <option value="C+">
+                            C+
+                        </option>
+                        <option value="C">
+                            C
+                        </option>
+                        <option value="C-">
+                            C-
+                        </option>
+                        <option value="D+">
+                            D+
+                        </option>
+                        <option value="D">
+                            D
+                        </option>
+                        <option value="D-">
+                            D-
+                        </option>
+                        <option value="F">
+                            F
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            <div style="width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Credits </h3>
+                </div>
+                <div>
+                    <select class="drop" name="credits5" id="credits5" style="width: 40%;">
+                        <option value="4">
+                            4
+                        </option>
+                        <option value="3">
+                            3
+                        </option>
+                        <option value="2" selected>
+                            2
+                        </option>
+                        <option value="1">
+                            1
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column; width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Class Type </h3>
+                </div>
+                <div>
+                    <select class="drop" name="type5" id="type5" style="width: 40%; height: auto;">
+                        <option value="AP">
+                            AP
+                        </option>
+                        <option value="IB">
+                            IB
+                        </option>
+                        <option value="Dual-Credit">
+                            Dual-Credit
+                        </option>
+                        <option value="Honors">
+                            Honors
+                        </option>
+                        <option value="Regular" selected>
+                            Regular
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; border-bottom: 1px solid black; width: 90%; margin-left: auto; margin-right: auto; padding-bottom: 5%; padding-top: 3%;">
+        <div style="display: flex; flex-direction: row;">
+            <div style="width: 50%; text-align: center;">
+                <div style="margin-bottom: 5%;">
+                    <h3 class="cfq"> What class is this for? </h3>
+                    <input type="text" class="form__input" placeholder="Ex: Math" required=""  />
+                </div>
+                
+            </div>
+            <div style="width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Grade </h3>
+                </div>
+                <div>
+                    <select class="drop" name="grades6" id="grades6" style="width: 40%;">
+                        <option value = "" selected>
+
+                        </option>
+                        <option value="A+">
+                            A+
+                        </option>
+                        <option value="A">
+                            A
+                        </option>
+                        <option value="A-">
+                            A-
+                        </option>
+                        <option value="B+">
+                            B+
+                        </option>
+                        <option value="B">
+                            B
+                        </option>
+                        <option value="B-">
+                            B-
+                        </option>
+                        <option value="C+">
+                            C+
+                        </option>
+                        <option value="C">
+                            C
+                        </option>
+                        <option value="C-">
+                            C-
+                        </option>
+                        <option value="D+">
+                            D+
+                        </option>
+                        <option value="D">
+                            D
+                        </option>
+                        <option value="D-">
+                            D-
+                        </option>
+                        <option value="F">
+                            F
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            <div style="width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Credits </h3>
+                </div>
+                <div>
+                    <select class="drop" name="credits6" id="credits6" style="width: 40%;">
+                        <option value="4">
+                            4
+                        </option>
+                        <option value="3">
+                            3
+                        </option>
+                        <option value="2" selected>
+                            2
+                        </option>
+                        <option value="1">
+                            1
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column; width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Class Type </h3>
+                </div>
+                <div>
+                    <select class="drop" name="type6" id="type6" style="width: 40%; height: auto;">
+                        <option value="AP">
+                            AP
+                        </option>
+                        <option value="IB">
+                            IB
+                        </option>
+                        <option value="Dual-Credit">
+                            Dual-Credit
+                        </option>
+                        <option value="Honors">
+                            Honors
+                        </option>
+                        <option value="Regular" selected>
+                            Regular
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column;  border-bottom: 1px solid black; width: 90%; margin-left: auto; margin-right: auto; padding-bottom: 5%; padding-top: 3%;">
+        <div style="display: flex; flex-direction: row;">
+            <div style="width: 50%; text-align: center;">
+                <div style="margin-bottom: 5%;">
+                    <h3 class="cfq"> What class is this for? </h3>
+                    <input type="text" class="form__input" placeholder="Ex: Math" required=""  />
+                </div>
+                
+            </div>
+            <div style="width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Grade </h3>
+                </div>
+                <div>
+                    <select class="drop" name="grades7" id="grades7" style="width: 40%;">
+                        <option value = "" selected>
+
+                        </option>
+                        <option value="A+">
+                            A+
+                        </option>
+                        <option value="A">
+                            A
+                        </option>
+                        <option value="A-">
+                            A-
+                        </option>
+                        <option value="B+">
+                            B+
+                        </option>
+                        <option value="B">
+                            B
+                        </option>
+                        <option value="B-">
+                            B-
+                        </option>
+                        <option value="C+">
+                            C+
+                        </option>
+                        <option value="C">
+                            C
+                        </option>
+                        <option value="C-">
+                            C-
+                        </option>
+                        <option value="D+">
+                            D+
+                        </option>
+                        <option value="D">
+                            D
+                        </option>
+                        <option value="D-">
+                            D-
+                        </option>
+                        <option value="F">
+                            F
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            <div style="width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Credits </h3>
+                </div>
+                <div>
+                    <select class="drop" name="credits7" id="credits7" style="width: 40%;">
+                        <option value="4">
+                            4
+                        </option>
+                        <option value="3">
+                            3
+                        </option>
+                        <option value="2" selected>
+                            2
+                        </option>
+                        <option value="1">
+                            1
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column; width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Class Type </h3>
+                </div>
+                <div>
+                    <select class="drop" name="type7" id="type7" style="width: 40%; height: auto;">
+                        <option value="AP">
+                            AP
+                        </option>
+                        <option value="IB">
+                            IB
+                        </option>
+                        <option value="Dual-Credit">
+                            Dual-Credit
+                        </option>
+                        <option value="Honors">
+                            Honors
+                        </option>
+                        <option value="Regular" selected>
+                            Regular
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; width:90%; margin-left: auto; margin-right: auto; padding-bottom: 5%; padding-top: 3%;">
+        <div style="display: flex; flex-direction: row;">
+            <div style="width: 50%; text-align: center;" >
+                <div style="margin-bottom: 5%;">
+                    <h3 class="cfq"> What class is this for? </h3>
+                    <input type="text" class="form__input" placeholder="Ex: Math" required=""  />
+                </div>
+                
+            </div>
+            <div style="width: 50%;  text-align: center;">
+                <div>
+                    <h3 class="cfq"> Grade </h3>
+                </div>
+                <div>
+                    <select class="drop" name="grades8" id="grades8" style="width: 40%;">
+                        <option value = "" selected>
+
+                        </option>
+                        <option value="A+">
+                            A+
+                        </option>
+                        <option value="A">
+                            A
+                        </option>
+                        <option value="A-">
+                            A-
+                        </option>
+                        <option value="B+">
+                            B+
+                        </option>
+                        <option value="B">
+                            B
+                        </option>
+                        <option value="B-">
+                            B-
+                        </option>
+                        <option value="C+">
+                            C+
+                        </option>
+                        <option value="C">
+                            C
+                        </option>
+                        <option value="C-">
+                            C-
+                        </option>
+                        <option value="D+">
+                            D+
+                        </option>
+                        <option value="D">
+                            D
+                        </option>
+                        <option value="D-">
+                            D-
+                        </option>
+                        <option value="F">
+                            F
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            <div style="width: 50%; text-align: center;">
+                <div>
+                    <h3 class="cfq"> Credits </h3>
+                </div>
+                <div>
+                    <select class="drop" name="credits8" id="credits8" style="width: 40%;">
+                        <option value="4">
+                            4
+                        </option>
+                        <option value="3">
+                            3
+                        </option>
+                        <option value="2" selected>
+                            2
+                        </option>
+                        <option value="1">
+                            1
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column; width: 50%;  text-align: center;">
+                <div>
+                    <h3 class="cfq"> Class Type </h3>
+                </div>
+                <div>
+                    <select class="drop" name="type8" id="type8" style="width: 40%; height: auto;">
+                        <option value="AP">
+                            AP
+                        </option>
+                        <option value="IB">
+                            IB
+                        </option>
+                        <option value="Dual-Credit">
+                            Dual-Credit
+                        </option>
+                        <option value="Honors">
+                            Honors
+                        </option>
+                        <option value="Regular" selected>
+                            Regular
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+      <div style="text-align: center; margin-top: 5%;">
+          <h1 style="color: black;">
+              Your GPA:
+          </h1>
+          <h3 id="gpaOutput" style="font-size: 48pt;">
+            0.00
+          </h3>
+      </div>
+      <form action="/mobile/gpaCalculator#logger" method="post" style="text-align: center; margin-bottom: 5%;">
+        {% csrf_token %}
+        <input name="gpaholder" id="gpaholder" type="text" style="display:none;"></input>
+        <input type="submit" value="Save to profile" id="submitter" style="-webkit-appearance: none;"/>
+      </form>
+      <div style="color: green; display: {{logged}}; text-align: center; margin-bottom: 5%;">
+        <h3 style="color: green;">
+          Saved ✔
+        </h3>
+    </div>
+    <div id="logger" style="color: red; display: {{notlogged}};  text-align: center;">
+        <h3 style="color: red;">
+            Not logged in :(
+        </h3>
+    </div>
+    <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <footer >
+        <div>
+            <!-- Display Ads -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-2209994521755973"
+                data-ad-slot="3051770603"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div style="display: flex; flex-direction: row; padding-bottom: 3%; padding-top: 3%;">
+            <div style="width: 40%; text-align: right;">
+              <img src= "{% static '/pictures/collegeplus2.png'%}" style="width: 50px; height: 50px; margin-top: 10px; margin-right: 10%;"></img>
+            </div>
+            <div style="width: 60%; text-align: left;">
+              <p style="margin-top: 4.3%;">CollegePlus™ by Slo-Meg Technologies</p>
+            </div>
+          </div>
+          
+    
+          <!-- <p>Contact information: </p>
+          <p>CollegePlus™ Instagram: <a href="https://instagram.com/collegeplusstudents" style="color:#ff6347"> @collegeplusstudents </a></p> 
+           <p> Logan Sage's Instagram:<a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq" style="color:#ff6347"> @logan.sage   </a><p>  </p><a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq"><img src="{% static '/picture/Logan.jpg" style="width: 30px; height:30px;border-radius: 50%;"></img></a></p>
+          <p> Lauren-Megan Botha's Instagram: <a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx" style="color:#ff6347"> @laurenmegan.b   </a><p>  </p><a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx"><img src="{% static '/picture/Lauren.jpg" style="width: 30px; height:30px;border-radius: 50%"></img></a></p>
+          <p> Seun Suberu's Instagram: <a href="https://www.instagram.com/sensei.seun/" style="color:#ff6347"> @sensei.seun   </a><p>  </p><a href="https://www.instagram.com/sensei.seun/"><img src="{% static '/picture/Seun.jpg" style="width: 30px; height:30px;border-radius: 50%; "></img></a></p> -->
+        </footer>
+      
+  </body>
+</html>

@@ -1,0 +1,660 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="address bar icon" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/styles/mfakewebsite.css'%}">
+    </link>
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css'%}">
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <script src="{% static '/scripts/scripts2.js'%}">
+    </script>
+    <meta charset="utf-8">
+    <title>CollegePicker</title>
+    <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-2209994521755973",
+              enable_page_level_ads: true
+        });
+    </script>
+  </head>
+  <body>
+    <nav role="navigation">
+      <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="menu">
+          <a href="/mobile/home"><li>Home</li></a><br>
+          <a href="/mobile/knowcollege"><li>CollegePicker</li></a><br>
+          <a href="/mobile/knowdegree"><li>DegreePicker</li></a><br>
+          <a href="/mobile/knowdevice"><li>Device Picker</li></a><br>
+          <a href="/mobile/resources"><li> Resources</li></a><br>
+          <a href="/mobile/gpaCalculator"><li> GPACalculator</li></a><br>
+          <a href="/mobile/about"><li>About CollegePlus™</li></a><br>
+          <a href="/mobile/logout"><li>Log out</li></a><br>
+        </ul>
+      </div>
+      <div id="logo" style="text-align: center; justify-content: center;">
+        <h1 style="width:45%; margin: auto; cursor: pointer; height: 100%; padding-top: 2%; margin-top: .8vh;" id="college">College<m id="plus"> + </m></h1>
+      </div>
+      <div id="poop">
+        <form action="/mobile/login_page" method="get">
+          <p style="margin-top: -10px; font-size: 3vw; height: 100%;"> <button type="submit" name="button" style="vertical-align: middle; height: 60px; color: {{iconcolor}}; max-width: 70px;"><i style="font-size: 40pt;" class="material-icons">account_circle</i></button></p>
+        </form>
+      </div> 
+    </nav>
+      <div id="questionsform" style="padding-bottom: 25%; margin-bottom: 40;">
+        <h1 style="color: #000000; padding-bottom: 3%; font-size: 30pt;
+        font-weight: 500;"> Let us help find you a college!</h1>
+        <div id="firstq">
+          <h3 class = "cfq">Where do you reside? </h3>
+        <div>
+          <p class="cfi">This will give colleges a better understanding where to recruit!</p>
+        </div>
+        <div class="dropdown" style="display: flex; flex-direction: row; width: 70%; margin-left: auto; margin-right: auto;" >
+          <div style="margin-bottom: 5%; width: 50%; ">
+            <h3 class="cfq"> City</h3>
+            <input type="text" class="form__input" id="usercity" placeholder="CollegeVille" required="" style="width: 50%;"  />
+          </div>
+          <div style="width:50%; margin-left: 0px">
+            <h3 class="cfq">
+              State
+            </h3>
+            <select class="drop" id="userstate" style="width: 50%; height: 80px; margin-left: 10px;">
+              <option value="Alabama">Alabama</option>
+              <option value="Alaska">Alaska</option>
+              <option value="Arizona">Arizona</option>
+              <option value="Arkansas">Arkansas</option>
+              <option value="California">California</option>
+              <option value="Colorado">Colorado</option>
+              <option value="Connecticut">Connecticut</option>
+              <option value="Delaware">Delaware</option>
+              <option value="District of Columbia">District Of Columbia</option>
+              <option value="Florida">Florida</option>
+              <option value="Georgia">Georgia</option>
+              <option value="Hawaii">Hawaii</option>
+              <option value="Idaho">Idaho</option>
+              <option value="Illinois">Illinois</option>
+              <option value="Indiana">Indiana</option>
+              <option value="Iowa">Iowa</option>
+              <option value="Kansas">Kansas</option>
+              <option value="Kentucky">Kentucky</option>
+              <option value="Louisiana">Louisiana</option>
+              <option value="Maine">Maine</option>
+              <option value="Maryland">Maryland</option>
+              <option value="Massachusetts">Massachusetts</option>
+              <option value="Michigan">Michigan</option>
+              <option value="Minnesota">Minnesota</option>
+              <option value="Mississippi">Mississippi</option>
+              <option value="29">Missouri</option>
+              <option value="Montana">Montana</option>
+              <option value="Nebraska">Nebraska</option>
+              <option value="Nevada">Nevada</option>
+              <option value="New Hampshire">New Hampshire</option>
+              <option value="New Jersey">New Jersey</option>
+              <option value="New Mexico">New Mexico</option>
+              <option value="New York">New York</option>
+              <option value="North Carolina">North Carolina</option>
+              <option value="North Dakota">North Dakota</option>
+              <option value="Ohio">Ohio</option>
+              <option value="Oklahoma">Oklahoma</option>
+              <option value="Oregon">Oregon</option>
+              <option value="Pennsylvania">Pennsylvania</option>
+              <option value="Rhode Island">Rhode Island</option>
+              <option value="South Carolina">South Carolina</option>
+              <option value="South Dakota">South Dakota</option>
+              <option value="Tennessee">Tennessee</option>
+              <option value="Texas">Texas</option>
+              <option value="Utah">Utah</option>
+              <option value="Vermont">Vermont</option>
+              <option value="Virginia">Virginia</option>
+              <option value="Washington">Washington</option>
+              <option value="West Virginia">West Virginia</option>
+              <option value="Wisconsin">Wisconsin</option>
+              <option value="Wyoming">Wyoming</option>
+              <optgroup label=""></optgroup>
+            </select>
+          </div>
+
+        </div>
+        <div id="firstq">
+          <h3 class = "cfq">What state would you like to go to school in? (Select up to 3) </h3>
+        <div>
+          <p class="cfi">Staying in-state will allow you to access lower tuition fees for public schools and allow you to visit your family more often. However, moving out of state will allow for more independence and adventure, giving you more freedom to explore new cities and states!</p>
+        </div>
+        <div class="dropdown" >
+            <select class="drop" name="states" id="states" style="width: 50%;" multiple>
+              <option value="1">Alabama</option>
+              <option value="2">Alaska</option>
+              <option value="4">Arizona</option>
+              <option value="5">Arkansas</option>
+              <option value="6">California</option>
+              <option value="8">Colorado</option>
+              <option value="9">Connecticut</option>
+              <option value="10">Delaware</option>
+              <option value="11">District Of Columbia</option>
+              <option value="12">Florida</option>
+              <option value="13">Georgia</option>
+              <option value="15">Hawaii</option>
+              <option value="16">Idaho</option>
+              <option value="17">Illinois</option>
+              <option value="18">Indiana</option>
+              <option value="19">Iowa</option>
+              <option value="20">Kansas</option>
+              <option value="21">Kentucky</option>
+              <option value="22">Louisiana</option>
+              <option value="23">Maine</option>
+              <option value="24">Maryland</option>
+              <option value="25">Massachusetts</option>
+              <option value="26">Michigan</option>
+              <option value="27">Minnesota</option>
+              <option value="28">Mississippi</option>
+              <option value="29">Missouri</option>
+              <option value="30">Montana</option>
+              <option value="31">Nebraska</option>
+              <option value="32">Nevada</option>
+              <option value="33">New Hampshire</option>
+              <option value="34">New Jersey</option>
+              <option value="35">New Mexico</option>
+              <option value="36">New York</option>
+              <option value="37">North Carolina</option>
+              <option value="38">North Dakota</option>
+              <option value="39">Ohio</option>
+              <option value="40">Oklahoma</option>
+              <option value="41">Oregon</option>
+              <option value="42">Pennsylvania</option>
+              <option value="44">Rhode Island</option>
+              <option value="45">South Carolina</option>
+              <option value="46">South Dakota</option>
+              <option value="47">Tennessee</option>
+              <option value="48">Texas</option>
+              <option value="49">Utah</option>
+              <option value="50">Vermont</option>
+              <option value="51">Virginia</option>
+              <option value="53">Washington</option>
+              <option value="54">West Virginia</option>
+              <option value="55">Wisconsin</option>
+              <option value="56">Wyoming</option>
+              <optgroup label=""></optgroup>
+            </select>
+          </div>
+        </div>
+          <div>
+            <h3 class="cfq"> What kind of degree do you want to achieve? </h3>
+            <div>
+              <p class="cfi">The degree you choose will alter how much school you do and what jobs you will be eligible for. A good idea is to look up the job description of your dream job and see what kind of degree they require. Most professional companies will require at least a Bachelor's degree. </p>
+            </div>
+            <div class="dropdown">
+              <select class="drop" name="degrees" id="degrees" style="width: 50%;">
+                <option value="1">
+                  Certificate Degree (depends)
+                </option>
+                <option value="2">
+                  Associate's Degree (2 yrs)
+                </option>
+                <option value="3">
+                  Bachelor's Degree (4 yrs)
+                </option>
+                <option value="4">
+                  Graduate Degree (1.5-2 yrs)
+                </option>
+                <optgroup label=""></optgroup>
+              </select>
+            </div>
+          </div>
+          <div>
+              <h3 class="cfq"> What kind of field are you interested in? </h3>
+              <div>
+                <p class="cfi"> If you select one of these we will let you know what schools at least have one major in this field  </p>
+              </div>
+              <div class="dropdown">
+                <select class="drop" name="fields" id="fields" style="width: 50%;">
+                  <option value="program.bachelors.ethnic_cultural_gender">
+                    Ethnic,Cultural, and Gender studies
+                  </option>
+                  <option value="program.bachelors.communication">
+                    Communication Studies
+                  </option>
+                  <option value = "program.bachelors.business_marketing">
+                    Business/Marketing
+                  </option>
+                  <option value="program.bachelors.engineering">
+                    Engineering Studies
+                  </option>
+                  <option value="program.bachelors.legal">
+                    Legal Studies
+                  </option>
+                  <option value = "program.bachelors.social_science">
+                    Political/Social Sciences
+                  </option>
+                  <option value="program.bachelors.english">
+                    English Studies
+                  </option>
+                  <option value="program.bachelors.biological">
+                    Biological Studies
+                  </option>
+                  <option value="program.bachelors.computer">
+                    Computer Studies
+                  </option>
+                  <option value="program.bachelors.construction">
+                    Construction
+                  </option>
+                  <option value="program.bachelors.psychology">
+                    Psychology
+                  </option>
+                  <option value="program.bachelors.personal_culinary">
+                    Culinary
+                  </option>
+                  <option value="program.bachelors.philosophy_religious">
+                    Philosophy
+                  </option>
+                  <option value="program.bachelors.visual_performing">
+                    Arts
+                  </option>
+                  <option value="1">
+                    Don't Know
+                  </option>
+                  <optgroup label=""></optgroup>
+                </select>
+              </div>
+            </div>
+            <div>
+              <h3 class="cfq"> Do you want to go to a Historically Black College ? </h3>
+              <div>
+                <p class="cfi"> Historically black colleges and universities, or HBCUs, are schools that were founded on the belief that everyone deserves access to a college education. HBCUS provide a first rate education while providing a diverse and inclusive classroom. </p>
+              </div>
+              <div class="dropdown" >
+                <select class="drop" name="hbcus" id="hbcus" style="width: 50%;">
+                  <option value="0">
+                    No thank you
+                  </option>
+                  <option value="1">
+                    Yes please
+                  </option>
+                  <optgroup label=""></optgroup>
+                </select>
+              </div>
+            </div>
+            <div>
+              <h3 class="cfq"> Do you want to go to all womens college? </h3>
+              <div>
+                <p class="cfi">All women colleges provide a space where women are supported and represented in all occupations and areas of study and where students can build a network of supportive female peers.</p>
+              </div>
+              <div class="dropdown">
+                <select class="drop" name="womens" id="womens" style="width: 50%;">
+                  <option value="0">
+                    Not really
+                  </option>
+                  <option value="1">
+                    Sure
+                  </option>
+                  <optgroup label=""></optgroup>
+                </select>
+              </div>
+            </div>
+            <div>
+              <h3 class="cfq"> How big do you want your college to be ? </h3>
+              <div>
+                <p class="cfi">Smaller colleges or universities will most likely offer smaller classes and a better chance to get to know you peers while bigger colleges or universities will offer more opportunities but may prove more of a challenge when getting to know your peers.</p>
+              </div>
+              <div class="dropdown">
+                <select class="drop" name="sizes" id="sizes" style="width: 50%;">
+                  <option value="0..5001">
+                    Small (0-5000 people)
+                  </option>
+                  <option value="5002..15001">
+                    Medium (5000-15000 people)
+                  </option>
+                  <option value="15002..30000">
+                    Large (15000-30000 people)
+                  </option>
+                  <option value="30001..">
+                    Huge (30000- infinity and beyond)
+                  </option>
+                  <optgroup label=""></optgroup>
+                </select>
+              </div>
+            </div>
+            <!-- <div>
+              <h3 class="cfq"> What religious affiliation do you want your college to have? </h3>
+              <div>
+                <p class="cfi">Religious Affiliation is an important factor to your college experience as it can shape the culture of the campus. This can cause special restrictions, or requires special attention towards certain things, such as a required mass service. Then there are select campuses that have religious names that don't necessarily affiliate with those beliefs nor does the campus life reflect that (such as Southern Methodist University). </p>
+              </div>
+              <div class="dropdown">
+                <select class="drop" name="religion" id="religion" style="width: 30%;">
+                  <option value="-2">
+                    Doesn't Matter
+                  </option>
+                  <option value="-1">
+                    None
+                  </option>
+                  <option value="22">
+                    American Evangelical Lutheran Church
+                  </option>
+                  <option value="24">
+                    African Methodist Episcopal Zion Church
+                  </option>
+                  <option value="27">
+                    Assemblies of God Church
+                  </option>
+                  <option value="28">
+                    Brethren Church
+                  </option>
+                  <option value="30">
+                    Roman Catholic
+                  </option>
+                  <option value="33">
+                    Wisconsin Evangelical Lutheran Synod
+                  </option>
+                  <option value="34">
+                    Christ and Missionary Alliance Church
+                  </option>
+                  <option value="35">
+                    Christian Reformed Church
+                  </option>
+                  <option value="36">
+                    Evangelical Congregational Church
+                  </option>
+                  <option value="37">
+                    Evangelical Covenant Church of America
+                  </option>
+                  <option value="38">
+                    Evangelical Free Church of America
+                  </option>
+                  <option value="39">
+                    Evangelical Lutheran Church
+                  </option>
+                  <option value="40">
+                    International United Pentecostal Church
+                  </option>
+                  <option value="41">
+                    Free Will Baptist Church
+                  </option>
+                  <option value="42">
+                    Interdenominational
+                  </option>
+                  <option value="43">
+                    Mennonite Brethren Church
+                  </option>
+                  <option value="44">
+                    Moravian Church
+                  </option>
+                  <option value="45">
+                    North American Baptist
+                  </option>
+                  <option value="47">
+                    Pentecostal Holiness Church
+                  </option>
+                  <option value="48">
+                    Christian Churches and Churches of Christ
+                  </option>
+                  <option value="49">
+                    Reformed Church in America
+                  </option>
+                  <option value="50">
+                    Episcopal Church, Reformed
+                  </option>
+                  <option value="51">
+                    African Methodist Episcopal
+                  </option>
+                  <option value="52">
+                    American Baptist
+                  </option>
+                  <option value="53">
+                    American Lutheran
+                  </option>
+                  <option value="54">
+                    Baptist
+                  </option>
+                  <option value="55">
+                    Christian Methodist Episcopal
+                  </option>
+                  <option value="57">
+                    Church of God
+                  </option>
+                  <option value="58">
+                    Church of Brethren
+                  </option>
+                  <option value="59">
+                    Church of the Nazarene
+                  </option>
+                  <option value="60">
+                    Cumberland Presbyterian
+                  </option>
+                  <option value="61">
+                    Christian Church (Disciples of Christ)
+                  </option>
+                  <option value="64">
+                    Free Methodist
+                  </option>
+                  <option value="65">
+                    Friends
+                  </option>
+                  <option value="66">
+                    Presbyterian Church (USA)
+                  </option>
+                  <option value="67">
+                    Lutheran Church in America
+                  </option>
+                  <option value="68">
+                    Lutheran Church - Missouri Synod
+                  </option>
+                  <option value="69">
+                    Mennonite Church
+                  </option>
+                  <option value="71">
+                    United Methodist
+                  </option>
+                  <option value="73">
+                    Protestant Episcopal
+                  </option>
+                  <option value="74">
+                    Churches of Christ
+                  </option>
+                  <option value="75">
+                    Southern Baptist
+                  </option>
+                  <option value="76">
+                    United Church of Christ
+                  </option>
+                  <option value="77">
+                    Protestant, not specified
+                  </option>
+                  <option value="78">
+                    Multiple Protestant Denomination
+                  </option>
+                  <option value="79">
+                    Other Protestant
+                  </option>
+                  <option value="80">
+                    Jewish
+                  </option>
+                  <option value="81">
+                    Reformed Presbyterian Church
+                  </option>
+                  <option value="84">
+                    United Brethren Church
+                  </option>
+                  <option value="87">
+                    Missionary Church Inc
+                  </option>
+                  <option value="88">
+                    Undenominational
+                  </option>
+                  <option value="89">
+                    Wesleyan
+                  </option>
+                  <option value="91">
+                    Greek Orthodox
+                  </option>
+                  <option value="92">
+                    Russian Orthodox
+                  </option>
+                  <option value="93">
+                    Unitarian Universalist
+                  </option>
+                  <option value="94">
+                    Latter Day Saints (Mormon Church)
+                  </option>
+                  <option value="95">
+                    Seventh Day Adventists
+                  </option>
+                  <option value="97">
+                    The Presbyterian Church in America
+                  </option>
+                  <option value="99">
+                    Other (none of the above)
+                  </option>
+                  <option value="100">
+                    Original Free Will Baptist
+                  </option>
+                  <option value="101">
+                    Ecumenical Christian
+                  </option>
+                  <option value="102">
+                    Evangelical Christian
+                  </option>
+                  <option value="103">
+                    Presbyterian
+                  </option>
+                  <option value="105">
+                    General Baptist
+                  </option>
+                  <option value="106">
+                    Muslim
+                  </option>
+                  <option value="107">
+                    Plymouth Brethren
+                  </option>
+                </select>
+              </div>
+            </div> -->
+              <div style="margin-bottom: 5%;">
+                <h3 class="cfq"> What is your ACT score? </h3>
+                <div>
+                  <input type="text" class="form__input" id="act" placeholder="0" required=""  />
+                </div>
+              </div>
+              <div style="margin-bottom: 5%;">
+                <h3 class="cfq"> What is your SAT score? </h3>
+                <div>
+                  <input type="text" class="form__input" id="sat" placeholder="0" required=""  />
+                </div>
+              </div>
+              <div>
+                <h3 class="cfq"> In which range is your household income? </h3>
+                <div>
+                  <p class="cfi">We want to show you the amount to expect to pay given how much your parents make.</p>
+                </div>
+                <div class="dropdown">
+                  <select class="drop" name="sizes" id="incomelevel" style="width: 30%;">
+                    <option value="0-30000">
+                      $0- $30,000
+                    </option>
+                    <option value="30001-48000">
+                      $30,001 - $48,000
+                    </option>
+                    <option value="48001-75000">
+                      $48,001 - $75,000
+                    </option>
+                    <option value="75001-110000">
+                      $75,001 - $110000
+                    </option>
+                    <option value="110001">
+                      $110001+
+                    </option>
+                    <optgroup label=""></optgroup>
+                  </select>
+                </div>
+                <div id="error">
+                  <h1 id="errorthrower"></h1>
+                </div>
+              </div>
+            </div>
+            <div id="submitbutton">
+              <button id="dropbtnsub">Submit Answers</button>
+            </div>
+            <div>
+              <form id = "myform" action="/mobile/college_questions" method="post" style = "width: fit-content; margin-left: auto; margin-right: auto;">
+                {% csrf_token %}
+              <input name="colleges" id="colleges" type="text" style="display:none;"></input>
+              <input name="collegestates" id="collegestates" type="text" style="display:none;"></input>
+              <input name="collegecities" id="collegecities" type="text" style="display:none;"></input>
+              <input name="collegetemperatures" id="collegetemperatures" type="text" style="display:none;"></input>
+              <input name="collegeweather" id="collegeweather" type="text" style="display:none;"></input>
+              <input name="collegelinks" id="collegelinks" type="text" style="display:none;"></input>
+              <input name="collegeact" id="collegeact" type="text" style="display:none;"></input>
+              <input name="collegesatreading" id="collegesatreading" type="text" style="display:none;"></input>
+              <input name="collegesatmath" id="collegesatmath" type="text" style="display:none;"></input>
+              <input name="collegecost" id="collegecost" type="text" style="display:none;"></input>
+              <input name="collegeblackpop" id="collegeblackpop" type="text" style="display:none;"></input>
+              <input name="collegewhitepop" id="collegewhitepop" type="text" style="display:none;"></input>
+              <input name="collegeasianpop" id="collegeasianpop" type="text" style="display:none;"></input>
+              <input name="collegehispanicpop" id="collegehispanicpop" type="text" style="display:none;"></input>
+              <input name="collegepricecalculator" id="collegepricecalculator" type="text" style="display:none;"></input>
+              <input name="collegenicheurl" id="collegenicheurl" type="text" style="display:none;"></input>
+              <input name="useract" id="useract" type="text" style="display:none;"></input>
+              <input name="usersat" id="usersat" type="text" style="display:none;"></input>
+              <input name="cityOfUser" id="cityOfUser" type="text" style="display:none;"></input>
+              <input name="stateOfUser" id="stateOfUser" type="text" style="display:none;"></input>
+              <input name="houseHoldIncome" id="houseHoldIncome" type="text" style="display:none;"></input>
+              <input name="gpa" id="gpa" type="text" style="display:none;"></input>
+              <input name="morecolleges" id="morecolleges" type="text" style="display:none;"></input>
+              <input type=submit id="dropbtnnxt" value = "See my results" style="margin-top: 30px;"> </input>
+              </form>
+            </div>
+          </div>
+        </div>
+        <footer >
+          <div>
+            <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-2209994521755973"
+            data-ad-slot="3051770603"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+          <div style="display: flex; flex-direction: row; padding-bottom: 3%; padding-top: 3%;">
+            <div style="width: 40%; text-align: right;">
+              <img src= "{% static '/pictures/collegeplus2.png'%}" style="width: 50px; height: 50px; margin-top: 10px; margin-right: 10%;"></img>
+            </div>
+            <div style="width: 60%; text-align: left;">
+              <p style="margin-top: 4.3%;">CollegePlus™ by Slo-Meg Technologies</p>
+            </div>
+          </div>
+          
+    
+          <!-- <p>Contact information: </p>
+          <p>CollegePlus™ Instagram: <a href="https://instagram.com/collegeplusstudents" style="color:#ff6347"> @collegeplusstudents </a></p> 
+           <p> Logan Sage's Instagram:<a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq" style="color:#ff6347"> @logan.sage   </a><p>  </p><a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq"><img src="{% static '/picture/Logan.jpg" style="width: 30px; height:30px;border-radius: 50%;"></img></a></p>
+          <p> Lauren-Megan Botha's Instagram: <a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx" style="color:#ff6347"> @laurenmegan.b   </a><p>  </p><a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx"><img src="{% static '/picture/Lauren.jpg" style="width: 30px; height:30px;border-radius: 50%"></img></a></p>
+          <p> Seun Suberu's Instagram: <a href="https://www.instagram.com/sensei.seun/" style="color:#ff6347"> @sensei.seun   </a><p>  </p><a href="https://www.instagram.com/sensei.seun/"><img src="{% static '/picture/Seun.jpg" style="width: 30px; height:30px;border-radius: 50%; "></img></a></p> -->
+        </footer>
+    </body>
+</html>

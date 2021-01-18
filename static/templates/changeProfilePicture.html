@@ -1,0 +1,239 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="address bar icon" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/pictures/collegeplus2.png'%}"/>
+   <!-- <link rel="manifest" href="/site.webmanifest"> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Outline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static '/pictures/collegeplus2.png'%}">
+    <link rel="stylesheet" href = "{% static '/styles/knowdegree.css'%}">
+    <link rel="stylesheet" href = "{% static 'styles/headerTemplate.css' %}">
+
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-2209994521755973",
+              enable_page_level_ads: true
+        });
+    </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <script>
+      var fileReader = new FileReader();
+      var filterType = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
+      var bool = false;
+      fileReader.onload = function (event) {
+        var image = new Image();
+        
+        image.onload=function(){
+            document.getElementById("original-Img").src=image.src;
+            var canvas=document.createElement("canvas");
+            var context=canvas.getContext("2d");
+            canvas.width=image.width/4;
+            canvas.height=image.height/4;
+            const outputImageAspectRatio = 1;
+            let outputWidth = 175;
+            let outputHeight = 175;
+            const inputImageAspectRatio = image.width / image.height;
+            if (inputImageAspectRatio > outputImageAspectRatio) {
+                outputWidth = 175 * outputImageAspectRatio;
+            } else if (inputImageAspectRatio < outputImageAspectRatio) {
+                outputHeight = 175 / outputImageAspectRatio;
+            }else{
+              bool = true;
+            }
+            canvas.width = 175;
+            canvas.height = 175;
+            context.drawImage(image,
+                0,
+                0,
+                175,
+                175,
+       
+            );
+            $("#prompt").text("DOWNLOAD AND SUBMIT THIS!");
+            document.getElementById("upload-Preview").src = canvas.toDataURL();
+        }
+        image.src=event.target.result;
+      };
+
+      var loadImageFile = function () {
+        console.log("helo")
+        var uploadImage = document.getElementById("mainImage");
+        
+        //check and retuns the length of uploded file.
+        if (uploadImage.files.length === 0) { 
+          return; 
+        }
+        
+        //Is Used for validate a valid file.
+        var uploadFile = document.getElementById("mainImage").files[0];
+        if (!filterType.test(uploadFile.type)) {
+          alert("Please select a valid image."); 
+          return;
+        }
+        
+        fileReader.readAsDataURL(uploadFile);
+      }
+
+   
+    </script>
+    <script>
+      function getCookie(cname) {
+       var name = cname + "=";
+       var decodedCookie = decodeURIComponent(document.cookie);
+       var ca = decodedCookie.split(';');
+       for(var i = 0; i <ca.length; i++) {
+         var c = ca[i];
+         while (c.charAt(0) == ' ') {
+           c = c.substring(1);
+         }
+         if (c.indexOf(name) == 0) {
+           return c.substring(name.length, c.length);
+         }
+       }
+       return "";
+     }
+     function checkCookie() {
+          var user=getCookie("username");
+          if (user != "") {
+            // $("#setter").text(user);
+            // $("#set1").val(user);
+          } else {
+            // $("#set1").val("log in");
+          }
+        }
+
+     function onLoad(){
+          checkCookie();
+          $("#logout").click(function(){
+            document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.location.href = "/logout";
+          });
+          $("#logout").hover(function(){
+            $("#logout").css("cursor", "pointer");
+          });
+        }
+
+        window.onload = onLoad
+    </script>
+    <script src="{% static 'scripts/header.js' %}"></script>   
+    <title>DegreePicker</title>
+  </head>
+  <body>
+    <div>
+      <nav role="navigation" id = "navbar">
+        <div id="menuToggle" style = "width : 20vw; min-width: 50px;">
+          <div id = 'box' style = "padding-top: 2vw; margin-left: 2vw; padding-right: 10vw;" onclick="boxClick()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <input type="checkbox" id = "check"/>
+          <ul id="menu" style="font-family: 'Montserrat', sans-serif;">
+            <a href="/home"><li class = "menuElements">Home</li></a><br>
+            <a href="/knowcollege"><li class = "menuElements">CollegePicker</li></a><br>
+            <a href="/knowdegree"><li class = "menuElements">DegreePicker</li></a><br>
+            <a href="/knowdevice"><li class = "menuElements">DevicePicker</li></a><br>
+             <a href="/knowSupplies"><li class = "menuElements">SuppliesPicker</li></a><br>
+          <a href="/buyOrSell"><li class = "menuElements">ProductPicker</li></a><br>            <a href="/resources"><li class = "menuElements"> Resources</li></a><br>
+            <a href="/gpaCalculator"><li class = "menuElements"> GPACalculator</li></a><br>
+            <a href="/about"><li class = "menuElements">About CollegePlus™</li></a><br>
+            <a href="/logout"><li class = "menuElements">Log out</li></a><br>
+          </ul>
+  
+        </div>
+        <div id="logo" onclick="logoClick('{{city}}')">
+          <h1 class = 'bigTitle'>
+            <m>College</m><m style ="color: tomato">Plus</m>
+          </h1>
+          <!-- <img src="{% static 'pictures/Lyfe_Here_header.png' %}" class="logo-image center d-inline-block align-middle" style = "min-width: 200px;" alt="Lyfe Here Logo" > -->
+        </div>
+        <div style = "width : 20vw;">
+          <div id="poop" style = "text-align: right;">
+                          <i class="material-icons" id = "personIcon" onclick="goToSave()">account_circle</i> 
+  
+          </div>
+        </div>
+      </nav>
+    </div>
+      <div style = "min-height: 100vh; margin-top: 10%; text-align: center;">
+        
+        <div>
+            <h4 style = "font-size: 24pt; color: black; padding-top: 5%;">
+                Compress and resize image
+            </h4>
+        </div>
+        <form method="post" id = "mainForm" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- <input type='text' style='display:none;' value='%s' name='csrfmiddlewaretoken'/> -->
+            <input type="file" name="image" id = "mainImage" onchange="loadImageFile();" accept="image/*">
+            <button type="submit" id = "submit" style=" background-color:#0099cc;width: 10%; border-radius:10px; border : 0;padding: 10px;">Upload Image</button>
+        </form>
+        <div style="display: flex; flex-direction: row; text-align: center; margin-top: 10%;">
+            <div>
+            <img style = "display:none" id="original-Img"/>
+            </div>
+            <div style = "margin-right: auto; margin-left: auto;">
+            <img id="upload-Preview"/>
+            <p id= "prompt" style = "color: black; font-size: 20pt;">
+            </p>
+            </div>
+        </div>
+        <div>
+            <p style = "color: red; font-size: 20pt;">
+            {{error}}
+            </p>
+        </div>
+        </div>
+      <script data-ad-client="ca-pub-2209994521755973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- </nav> -->
+    <footer >
+      <div>
+        <ins class="adsbygoogle"
+        style="display:block; text-align:center;"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-2209994521755973"
+        data-ad-slot="9243687244"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <div style="display: flex; flex-direction: row; padding-bottom: 0%; padding-top: 3%;">
+        <div style="width: 40%; text-align: right;">
+          <img src= "{% static '/pictures/collegeplus2.png'%}" style="width: 50px; height: 50px; margin-top: 10px; margin-right: 10%;"></img>
+        </div>
+        <div style="width: 60%; text-align: left;">
+          <p style="margin-top: 3.2%;">CollegePlus™ by Slo-Meg Technologies</p>
+        </div>
+      </div>
+
+      
+
+      <!-- <p>Contact information: </p>
+      <p>CollegePlus™ Instagram: <a href="https://instagram.com/collegeplusstudents" style="color:#ff6347"> @collegeplusstudents </a></p> 
+       <p> Logan Sage's Instagram:<a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq" style="color:#ff6347"> @logan.sage   </a><p>  </p><a href="https://instagram.com/logan.sage?igshid=9y9y1s2c6abq"><img src="{% static '/picture/Logan.jpg" style="width: 30px; height:30px;border-radius: 50%;"></img></a></p>
+      <p> Lauren-Megan Botha's Instagram: <a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx" style="color:#ff6347"> @laurenmegan.b   </a><p>  </p><a href="https://instagram.com/lolygagging_lemur?igshid=uvlgdn5hwelx"><img src="{% static '/picture/Lauren.jpg" style="width: 30px; height:30px;border-radius: 50%"></img></a></p>
+      <p> Seun Suberu's Instagram: <a href="https://www.instagram.com/sensei.seun/" style="color:#ff6347"> @sensei.seun   </a><p>  </p><a href="https://www.instagram.com/sensei.seun/"><img src="{% static '/picture/Seun.jpg" style="width: 30px; height:30px;border-radius: 50%; "></img></a></p> -->
+    </footer>
+  </body>
+</html>

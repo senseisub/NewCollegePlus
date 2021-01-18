@@ -1,0 +1,40 @@
+body
+{
+  background-color: white;
+  margin: 0;
+  padding: 0;
+
+  /* make it look decent enough */
+  background: white;
+  color: #cdcdcd;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-appearance: none;
+}
+
+#plus{
+  color:tomato;
+  font-size: 85px;
+}
+#college{
+  color:lightgrey;
+  font-size: 85px;
+  border-color: 2px solid black;
+  margin-top: -5px;
+  font-weight: 400;
+  font-family: "Segoe UI",Arial,sans-serif;
+}
+footer {
+  background-color: #232323;
+  margin-bottom: -20px;
+  text-align: center;
+  padding-bottom: 20px;
+  color:lightgrey;
+}
+
+
+/* #ques1{
+  margin-top: 10%;
+  top: 200px;
+  margin-bottom:0;
+
+} */

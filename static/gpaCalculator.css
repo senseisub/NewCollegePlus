@@ -1,0 +1,95 @@
+.drop{
+    background-color: tomato;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    cursor: pointer;
+    height: 10%;
+    border: 2px outset tomato;
+    border-radius: 50px;
+    -webkit-appearance: none;
+  }
+  #submitter{
+    margin-top: 50px;
+    border-radius: 50px;
+    background-color: #343434;
+    color: white;
+    padding: 18px;
+    padding-left: 35px;
+    padding-right: 35px;
+    font-size: 16px;
+    cursor: pointer;
+    /* border: 5px outset tomato; */
+    opacity: 1;
+    border: none;
+  }
+  #submitter:hover{
+    background-color: #232323;
+  }
+
+  .form__label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+    display: block;
+    transition: all 0.3s;
+    transform: translateY(0rem);
+  }
+  
+  .form__input {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    font-size: 1.2rem;
+    margin: 0 auto;
+    margin-top: 5%;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    background-color: rgb(255, 255, 255);
+    border: 3px solid tomato;
+    width: 40%;
+    display: block;
+    /* border-bottom: 0.3rem solid transparent; */
+    transition: all 0.3s;
+  }
+  
+  .form__input:placeholder-shown + .form__label {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: translateY(-4rem);
+    transform: translateY(-4rem);
+  }
+
+  .rowSection{
+    display: flex; 
+    flex-direction: row; 
+    width: 50%;
+    min-width: 400px;
+  }
+
+  .wholeRow{
+    display: flex; 
+    flex-direction: row; 
+    border-bottom: 1px solid black; 
+    width: 90%; 
+    margin-left: auto; 
+    margin-right: auto;
+    flex-wrap: wrap;
+    padding-bottom: 5vh;
+  }
+
+  .wholeRow>* {
+    flex: 1 1 160px;
+  }
+
+  .cfq{
+      font-size: 16pt;
+  }
+
+  #gpaOutput{
+      font-size: 36pt;
+  }
+
+  #question{
+      font-size: 24pt;
+  }

@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" href="{% static '/pictures/collegeplus2.png'%}" />
+    <link rel="address bar icon" href="{% static '/pictures/collegeplus2.png'%}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/pictures/collegeplus2.png'%}" />
+   <link rel="icon" type="image/png" sizes="32x32" href="{% static '/pictures/collegeplus2.png'%}"/>
+   <link rel="icon" type="image/png" sizes="16x16" href="{% static '/pictures/collegeplus2.png'%}"/>
+   <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="{% static '/styles/login_page.css'%}">
+    </link>
+    <meta charset="utf-8">
+    <title> Login</title>
+    <script>
+      function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+      function checkCookie() {
+        var user=getCookie("username");
+        if (user != "") {
+          $("#setter").text(user);
+          $("#temp").val(user);
+          $("#sub").on("click", function(){
+            $("#sub").submit();
+          });
+          $("#sub").trigger("click");
+        } else {
+          $("#set1").val("log in");
+        }
+      }
+
+      function onLoad(){
+        checkCookie();
+      }
+
+      window.onload = onLoad
+  </script>
+  </head>
+  <body>
+    <form action = "/login_page" method="POST">
+      <input type="text" id="temp" name = "temp" style="display: none;" value="{{text}}"/>
+      <input id = "sub" type="submit">
+    </form>
+    
+  </body>
+</html>

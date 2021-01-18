@@ -1,0 +1,199 @@
+body
+{
+  background-color: white;
+  margin: 0;
+  padding: 0;
+
+  /* make it look decent enough */
+  background: white;
+  color: #cdcdcd;
+  font-family: 'Montserrat', sans-serif;
+  height: 100%;
+  -webkit-appearance: none;
+}
+
+footer {
+  background-color: #232323;
+  margin-bottom: -20px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+#plus{
+  color:tomato;
+  font-size: 85px;
+}
+#college{
+  color:lightgrey;
+  font-size: 85px;
+  border-color: 2px solid black;
+  margin-top: -5px;
+  font-family: "Segoe UI",Arial,sans-serif; 
+  font-weight: 400;
+}
+#recs{
+  margin-top: 3vh;
+  justify-content: center;
+  text-align: center;
+  font-size: 5vw;
+}
+/* #bttmbtns{
+  height: 100px;
+  width: 200px;
+  margin-top: 50px;
+  border-radius: 5px;
+  background:linear-gradient(to bottom, rgba(255,99,71,1), rgba(240,137,140,1));
+  color:black;
+  font-size: 20px;
+  border: 5px outset tomato;
+  opacity:0.8;
+  justify-content: center;
+  text-align: center; */
+/* } */
+/* #bttmbtns:hover{
+  opacity:1;
+} */
+
+#recsnext{
+  background-color: #343434;
+  color: white;
+
+  cursor: pointer;
+  /* border: 5px outset tomato; */
+  opacity: 1;
+  border: none;
+}
+#recsnext:hover{
+  background-color: #232323;
+}
+#gotodegrec{
+  background-color: #343434;
+  color : white;
+  cursor: pointer;
+  /* border: 5px outset tomato; */
+  opacity: 1;
+  border: none;
+}
+
+#gotodegrec:hover{
+  background-color: #232323;
+}
+#majors{
+  font-size:24pt;
+  color: #ff6347;
+
+}
+
+#morecolleges{
+  height: 100px;
+  /* width: 200px; */
+  margin-top: 50px;
+  border-radius: 5px;
+  background-color: tomato;
+  color:black;
+  /* font-size: 10px; */
+  border: none;
+  opacity: 1;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+#morecolleges:hover{
+  background-color: #dd4125;
+}
+.columnitems{
+  font-size: 1.5vw;
+  color: #000000;
+  margin-left: auto;
+  margin-right: auto;
+}
+.collegewebsitebutton{
+  background-color: tomato;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  cursor: pointer;
+  /* border: 5px outset tomato; */
+  opacity: 1;
+  border: none;
+  -webkit-appearance: none;
+}
+
+.collegewebsitebutton:hover{
+  background-color: #dd4125;
+  -webkit-appearance: none;
+}
+.para{
+  font-size: 3vw;
+  color: black;
+  font-weight: 700;
+}
+.describer{
+  font-size: 2vw;
+  color: #000000;
+}
+.progress .back {
+  position: absolute;
+  background-color: #e7eeeb;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  top: 5px;
+  left: 5px;
+  border-radius: 50%;
+}
+
+.progress .back-centre {
+  position: absolute;
+  background-color: #fff;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  top: 20px;
+  left: 20px;
+  border-radius: 50%;
+}
+
+.recbuttons{
+  padding: 24px;
+  font-size: 12pt;
+  margin-top: 0px;
+  border-radius: 25px;
+  background-color: tomato;
+  color: black;
+  cursor: pointer;
+  /* border: 5px outset tomato; */
+  opacity: 1;
+  border: none;
+  -webkit-appearance: none;
+}
+
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw; 
+  margin-bottom: 5%; 
+  margin-top: 5%;
+}
+.box>* {
+  flex: 1 1 160px;
+}
+
+.graphDiv{
+  min-width: 400px;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 5vh;
+  min-height: 50vh;
+}
+
+.bigButtonDiv{
+  min-width: 300px;
+}
+
+.stats{
+  display: flex; 
+  flex-direction: row;
+  min-width: 500px;
+
+}

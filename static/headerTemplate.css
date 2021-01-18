@@ -1,0 +1,287 @@
+#navbar{
+    display: flex;
+    width : 100vw;
+    flex-direction: row;
+    padding-top: 2vh;
+    z-index: 5;
+    background-color: #232323;
+    min-height : 10vh;
+    max-height : 10vh;
+  }
+  #logo{
+    width : 70vw;
+    cursor: pointer;
+  }
+
+  #logo h1{
+    -webkit-font-smoothing: antialiased;
+    font-weight: 100;
+  }
+  h1{
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+  }
+  p{
+    -webkit-font-smoothing: antialiased;
+  }
+  h2{
+    -webkit-font-smoothing: antialiased;
+  }
+  m{
+    -webkit-font-smoothing: antialiased;
+
+  }
+  #menutoggle{
+    position: relative;
+  }
+
+  #menuToggle input
+{
+  display: none;
+
+  position: relative;
+
+  cursor: pointer;
+
+  opacity: 0;
+
+  -webkit-touch-callout: none;
+}
+
+a
+{
+  text-decoration: none;
+  color: #000000;
+
+  transition: color 0.3s ease;
+}
+#menuToggle span
+{
+  display: block;
+  width: 50px;
+  max-width: 5vh;
+  height: .3vh;
+  min-height: 4px;
+  /* max-height: ; */
+  margin-bottom: 5px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  background: black;
+  border-radius: 3px;
+  background-color : #cdcdcd;
+  z-index: 2;
+
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+
+}
+
+#menu
+{
+  position: fixed;
+  width: 500px;
+  max-width: 75vw;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+
+  height: 100vh;
+
+}
+
+#menu li
+{
+  font-size : 18pt;
+  padding-top : .5vh;
+  padding-bottom : .5vh;
+  color:black;
+  transition: color 0.3s ease;
+  padding-left: 20px;
+}
+
+.menuElements{
+  
+}
+
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+#logo{
+  text-align: center;
+}
+
+#menuToggle li:hover
+{
+  color: white;
+
+}
+
+#menuToggle
+{
+  display: block;
+
+  align-items: center;
+
+  z-index: 2;
+
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.logo-image{
+    cursor: pointer;
+    width: 50%;
+    margin:auto;
+  }
+
+/*Footer*/
+
+#privacy{
+    color: white;
+  }
+  #user-agreement{
+    color: white;
+  }
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+  }
+  
+  
+  .fa:hover {
+    opacity: 0.7;
+  }
+  
+  
+  /* Facebook */
+  .fa-facebook {
+    background: #99D5C9;
+    color: white;
+  }
+  
+  /* Twitter */
+  .fa-twitter {
+    background:#99D5C9;
+    color: white;
+  }
+  /* Instagram */
+  .fa-instagram {
+    background: #99D5C9;
+    color: white;
+  }
+
+  footer {
+    display: block;
+    text-align: center;
+    margin-bottom: 50px;
+    
+  }
+  
+  footer p {
+    color : #efefef;
+  }
+
+  body
+{
+  background-color: #232323;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  min-height: 100vh;
+  max-width: 100vw;
+  -webkit-appearance: none;
+  /* make it look decent enough */
+  font-family: 'Montserrat', sans-serif;
+  left: 0;
+}
+
+#poop
+{
+  display: block;
+  z-index: 1;
+  font-family: 'Montserrat', sans-serif;
+  padding-right: 2vw;
+  cursor: pointer;
+}
+
+#poop button {
+    background-color: Transparent;
+    background: #cdcdcd;
+    border-radius: 50px;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+
+}
+#poop i{
+  text-align: center;
+  align-items: center;
+}
+
+#personIcon{
+  color: #cdcdcd;
+  font-size: 24pt;
+  margin-top : 2vh;
+}
+
+.bigTitle{
+  font-size: 6vh; 
+  margin-top: 0;
+}
+
+#logo h1{
+  color : #cdcdcd;
+}
